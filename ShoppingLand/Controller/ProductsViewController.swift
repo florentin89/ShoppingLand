@@ -24,7 +24,14 @@ class ProductsViewController: UIViewController, PhotoSentDelegate {
     // Life Cycle States
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        
+        registerSettingsBundle()
+        // Use Observer Pattern to detect when the background was changed
+        NotificationCenter.default.addObserver(self, selector: #selector(ProductsViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
+        defaultsChanged()
+        
         accessToAdminPanel()
         updateProducts()
 
@@ -159,6 +166,25 @@ class ProductsViewController: UIViewController, PhotoSentDelegate {
         
     }
     
+    func registerSettingsBundle(){
+        let appDefaults = [String:AnyObject]()
+        UserDefaults.standard.register(defaults: appDefaults)
+    }
+    @objc func defaultsChanged(){
+        if UserDefaults.standard.bool(forKey: "SilverThemeKey") {
+            
+            let silverBackground = UIImageView(image: UIImage(named: "silverBackground.jpg"))
+            silverBackground.frame = self.productsTableView.frame
+            self.productsTableView.backgroundView = silverBackground
+            self.view.backgroundColor = UIColor.lightGray
+            
+        }
+        else {
+            self.productsTableView.backgroundView = UIImageView()
+            self.view.backgroundColor = UIColor.white
+            
+        }
+    }
     
 }
 

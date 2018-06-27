@@ -38,7 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+      
+        // Reset data and set version number for App and Build
+        SettingsBundleHelper.checkAndExecuteSettings()
+        SettingsBundleHelper.setVersionAndBuildNumber()
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -101,6 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Path for temporary CoreData DB: \n\(url.absoluteString)")
         }
     }
+    
 }
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate

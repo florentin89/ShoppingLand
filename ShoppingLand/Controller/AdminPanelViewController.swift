@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 
-
 var productsArray = [Product]()
 
 // Protocol to send the userPhoto from this VC to another VC

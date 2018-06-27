@@ -140,7 +140,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="tzH-Qy-7lZ"/>
                                 </connections>
                             </tableView>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8YJ-6n-I0i" userLabel="Avatar User">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageUser.png" translatesAutoresizingMaskIntoConstraints="NO" id="8YJ-6n-I0i" userLabel="Avatar User">
                                 <rect key="frame" x="16" y="64" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="hTK-N2-99Z"/>
@@ -859,6 +859,7 @@
     </scenes>
     <resources>
         <image name="ImageProduct.jpg" width="720" height="720"/>
+        <image name="ImageUser.png" width="300" height="300"/>
         <image name="ShopCart" width="5500" height="4200"/>
     </resources>
 </document>
