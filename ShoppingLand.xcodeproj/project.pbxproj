@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2EA4021DE5E9F3D4F1D1B811 /* Pods_ShoppingLand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB9385C62C8392B3FC1EFED9 /* Pods_ShoppingLand.framework */; };
+		B522972D20DBF47F006A56DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522972C20DBF47F006A56DA /* AppDelegate.swift */; };
+		B522972F20DBF47F006A56DA /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522972E20DBF47F006A56DA /* ProductsViewController.swift */; };
+		B522973220DBF47F006A56DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B522973020DBF47F006A56DA /* Main.storyboard */; };
+		B522973720DBF481006A56DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B522973620DBF481006A56DA /* Assets.xcassets */; };
+		B522973A20DBF481006A56DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B522973820DBF481006A56DA /* LaunchScreen.storyboard */; };
+		B522974720DBF8FB006A56DA /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522974620DBF8FB006A56DA /* CartViewController.swift */; };
+		B522974920DBF90B006A56DA /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522974820DBF90B006A56DA /* ProductDetailsViewController.swift */; };
+		B522974B20DC1510006A56DA /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522974A20DC1510006A56DA /* ProductTableViewCell.swift */; };
+		B5DF6DDA20DFDEB000A06435 /* ImageProduct.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B5DF6DD920DFDEB000A06435 /* ImageProduct.jpg */; };
+		B5DF6DDC20DFDEBD00A06435 /* ImageUser.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF6DDB20DFDEBD00A06435 /* ImageUser.png */; };
+		B5DF6DDE20DFF67200A06435 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DF6DDD20DFF67200A06435 /* CoreDataStack.swift */; };
+		B5DF6DE520DFFDC300A06435 /* ShoppingLand.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5DF6DE320DFFDC300A06435 /* ShoppingLand.xcdatamodeld */; };
+		B5E7793420DD31790027C8F3 /* AdminPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E7793320DD31790027C8F3 /* AdminPanelViewController.swift */; };
+		B5E7793820DD55CE0027C8F3 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E7793720DD55CE0027C8F3 /* CartTableViewCell.swift */; };
+		B5FC7CE620E1266100530F21 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FC7CE420E106D700530F21 /* AssetsLibrary.framework */; };
+		B5FC7CE820E158E900530F21 /* GoogleSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC7CE720E158E900530F21 /* GoogleSearchModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		257EC222F0BFFB6D564E1180 /* Pods-ShoppingLand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingLand.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShoppingLand/Pods-ShoppingLand.release.xcconfig"; sourceTree = "<group>"; };
+		B522972920DBF47E006A56DA /* ShoppingLand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingLand.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B522972C20DBF47F006A56DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B522972E20DBF47F006A56DA /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		B522973120DBF47F006A56DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B522973620DBF481006A56DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B522973920DBF481006A56DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B522973B20DBF481006A56DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B522974620DBF8FB006A56DA /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		B522974820DBF90B006A56DA /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
+		B522974A20DC1510006A56DA /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		B5DF6DD920DFDEB000A06435 /* ImageProduct.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ImageProduct.jpg; sourceTree = "<group>"; };
+		B5DF6DDB20DFDEBD00A06435 /* ImageUser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageUser.png; sourceTree = "<group>"; };
+		B5DF6DDD20DFF67200A06435 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		B5DF6DE420DFFDC300A06435 /* ShoppingLand.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingLand.xcdatamodel; sourceTree = "<group>"; };
+		B5E7793320DD31790027C8F3 /* AdminPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPanelViewController.swift; sourceTree = "<group>"; };
+		B5E7793720DD55CE0027C8F3 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		B5FC7CE420E106D700530F21 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		B5FC7CE720E158E900530F21 /* GoogleSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSearchModel.swift; sourceTree = "<group>"; };
+		CB9385C62C8392B3FC1EFED9 /* Pods_ShoppingLand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoppingLand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9C2850241E9F510D74F6B25 /* Pods-ShoppingLand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingLand.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShoppingLand/Pods-ShoppingLand.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B522972620DBF47E006A56DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5FC7CE620E1266100530F21 /* AssetsLibrary.framework in Frameworks */,
+				2EA4021DE5E9F3D4F1D1B811 /* Pods_ShoppingLand.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30B231B49EBB887CAF6C4D68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B5FC7CE420E106D700530F21 /* AssetsLibrary.framework */,
+				CB9385C62C8392B3FC1EFED9 /* Pods_ShoppingLand.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE2E801D5331D5A7CE37942D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D9C2850241E9F510D74F6B25 /* Pods-ShoppingLand.debug.xcconfig */,
+				257EC222F0BFFB6D564E1180 /* Pods-ShoppingLand.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B522972020DBF47E006A56DA = {
+			isa = PBXGroup;
+			children = (
+				B522972B20DBF47E006A56DA /* ShoppingLand */,
+				B522972A20DBF47E006A56DA /* Products */,
+				AE2E801D5331D5A7CE37942D /* Pods */,
+				30B231B49EBB887CAF6C4D68 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B522972A20DBF47E006A56DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B522972920DBF47E006A56DA /* ShoppingLand.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B522972B20DBF47E006A56DA /* ShoppingLand */ = {
+			isa = PBXGroup;
+			children = (
+				B522974420DBF515006A56DA /* CoreData */,
+				B522974120DBF4E9006A56DA /* Model */,
+				B522974220DBF4EF006A56DA /* View */,
+				B522974320DBF4F3006A56DA /* Controller */,
+				B522974520DBF51F006A56DA /* Supporting Files */,
+			);
+			path = ShoppingLand;
+			sourceTree = "<group>";
+		};
+		B522974120DBF4E9006A56DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B522974A20DC1510006A56DA /* ProductTableViewCell.swift */,
+				B5E7793720DD55CE0027C8F3 /* CartTableViewCell.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B522974220DBF4EF006A56DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B522973020DBF47F006A56DA /* Main.storyboard */,
+				B522973620DBF481006A56DA /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B522974320DBF4F3006A56DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B5E7793320DD31790027C8F3 /* AdminPanelViewController.swift */,
+				B522972E20DBF47F006A56DA /* ProductsViewController.swift */,
+				B522974820DBF90B006A56DA /* ProductDetailsViewController.swift */,
+				B522974620DBF8FB006A56DA /* CartViewController.swift */,
+				B522972C20DBF47F006A56DA /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B522974420DBF515006A56DA /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B5DF6DEA20E0070500A06435 /* Model */,
+				B5DF6DE320DFFDC300A06435 /* ShoppingLand.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B522974520DBF51F006A56DA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B5DF6DD920DFDEB000A06435 /* ImageProduct.jpg */,
+				B5DF6DDB20DFDEBD00A06435 /* ImageUser.png */,
+				B522973820DBF481006A56DA /* LaunchScreen.storyboard */,
+				B522973B20DBF481006A56DA /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B5DF6DEA20E0070500A06435 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5DF6DDD20DFF67200A06435 /* CoreDataStack.swift */,
+				B5FC7CE720E158E900530F21 /* GoogleSearchModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B522972820DBF47E006A56DA /* ShoppingLand */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B522973E20DBF481006A56DA /* Build configuration list for PBXNativeTarget "ShoppingLand" */;
+			buildPhases = (
+				A91F92377973F25A87F973C7 /* [CP] Check Pods Manifest.lock */,
+				B522972520DBF47E006A56DA /* Sources */,
+				B522972620DBF47E006A56DA /* Frameworks */,
+				B522972720DBF47E006A56DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShoppingLand;
+			productName = ComputersLand;
+			productReference = B522972920DBF47E006A56DA /* ShoppingLand.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B522972120DBF47E006A56DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Florentin Lupascu";
+				TargetAttributes = {
+					B522972820DBF47E006A56DA = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = B522972420DBF47E006A56DA /* Build configuration list for PBXProject "ShoppingLand" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B522972020DBF47E006A56DA;
+			productRefGroup = B522972A20DBF47E006A56DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B522972820DBF47E006A56DA /* ShoppingLand */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B522972720DBF47E006A56DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5DF6DDC20DFDEBD00A06435 /* ImageUser.png in Resources */,
+				B522973A20DBF481006A56DA /* LaunchScreen.storyboard in Resources */,
+				B5DF6DDA20DFDEB000A06435 /* ImageProduct.jpg in Resources */,
+				B522973720DBF481006A56DA /* Assets.xcassets in Resources */,
+				B522973220DBF47F006A56DA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A91F92377973F25A87F973C7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShoppingLand-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B522972520DBF47E006A56DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B522974720DBF8FB006A56DA /* CartViewController.swift in Sources */,
+				B522972F20DBF47F006A56DA /* ProductsViewController.swift in Sources */,
+				B5DF6DDE20DFF67200A06435 /* CoreDataStack.swift in Sources */,
+				B522972D20DBF47F006A56DA /* AppDelegate.swift in Sources */,
+				B522974920DBF90B006A56DA /* ProductDetailsViewController.swift in Sources */,
+				B5DF6DE520DFFDC300A06435 /* ShoppingLand.xcdatamodeld in Sources */,
+				B522974B20DC1510006A56DA /* ProductTableViewCell.swift in Sources */,
+				B5E7793420DD31790027C8F3 /* AdminPanelViewController.swift in Sources */,
+				B5FC7CE820E158E900530F21 /* GoogleSearchModel.swift in Sources */,
+				B5E7793820DD55CE0027C8F3 /* CartTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B522973020DBF47F006A56DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B522973120DBF47F006A56DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B522973820DBF481006A56DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B522973920DBF481006A56DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B522973C20DBF481006A56DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B522973D20DBF481006A56DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B522973F20DBF481006A56DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9C2850241E9F510D74F6B25 /* Pods-ShoppingLand.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q5YJ9F2VSX;
+				INFOPLIST_FILE = "ShoppingLand/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Florentin.ShoppingLand;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B522974020DBF481006A56DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 257EC222F0BFFB6D564E1180 /* Pods-ShoppingLand.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q5YJ9F2VSX;
+				INFOPLIST_FILE = "ShoppingLand/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Florentin.ShoppingLand;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B522972420DBF47E006A56DA /* Build configuration list for PBXProject "ShoppingLand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B522973C20DBF481006A56DA /* Debug */,
+				B522973D20DBF481006A56DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B522973E20DBF481006A56DA /* Build configuration list for PBXNativeTarget "ShoppingLand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B522973F20DBF481006A56DA /* Debug */,
+				B522974020DBF481006A56DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B5DF6DE320DFFDC300A06435 /* ShoppingLand.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B5DF6DE420DFFDC300A06435 /* ShoppingLand.xcdatamodel */,
+			);
+			currentVersion = B5DF6DE420DFFDC300A06435 /* ShoppingLand.xcdatamodel */;
+			path = ShoppingLand.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B522972120DBF47E006A56DA /* Project object */;
+}
