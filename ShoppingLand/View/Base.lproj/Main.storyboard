@@ -13,7 +13,7 @@
         <!--Products View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Products View Controller" customClass="ProductsViewController" customModule="ShoppingLand" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductsStoryboard" id="BYZ-38-t0r" userLabel="Products View Controller" customClass="ProductsViewController" customModule="ShoppingLand" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -140,7 +140,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="tzH-Qy-7lZ"/>
                                 </connections>
                             </tableView>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageUser.png" translatesAutoresizingMaskIntoConstraints="NO" id="8YJ-6n-I0i" userLabel="Avatar User">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8YJ-6n-I0i" userLabel="Avatar User">
                                 <rect key="frame" x="16" y="64" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="hTK-N2-99Z"/>
@@ -314,7 +314,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price £" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="db1-H4-yuz">
-                                                    <rect key="frame" x="217.66666666666663" y="21" width="95.333333333333343" height="28"/>
+                                                    <rect key="frame" x="217.66666666666666" y="21" width="95.333333333333343" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -631,7 +631,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQY-iv-xa2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-784.05797101449286" y="2915.217391304348"/>
+            <point key="canvasLocation" x="-797" y="2923"/>
         </scene>
         <!--Navigation Controller Products-->
         <scene sceneID="QNU-Dp-M3F">
@@ -859,7 +859,6 @@
     </scenes>
     <resources>
         <image name="ImageProduct.jpg" width="720" height="720"/>
-        <image name="ImageUser.png" width="300" height="300"/>
         <image name="ShopCart" width="5500" height="4200"/>
     </resources>
 </document>

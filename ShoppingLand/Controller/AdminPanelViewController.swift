@@ -12,6 +12,11 @@ import CoreData
 
 var productsArray = [Product]()
 
+// Protocol to send the userPhoto from this VC to another VC
+protocol PhotoSentDelegate{
+    func getUserPhoto(image: UIImage)
+}
+
 class AdminPanelViewController: UITableViewController {
     
     @IBOutlet var adminTableView: UITableView!
@@ -33,12 +38,14 @@ class AdminPanelViewController: UITableViewController {
     @IBOutlet weak var resetBtnOutlet: UIButton!
     
     var currentUser = UIDevice.current.name
+    var delegate: PhotoSentDelegate? = nil
     
     // Life Cycle States
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateInterface()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,10 +55,24 @@ class AdminPanelViewController: UITableViewController {
         userPhotoImageView.contentMode = .scaleToFill
     }
     
-    // Function to update the properties of AdminTableView
+    // Prepare the userPhoto to be send from this VC to another VC
+    func sendUserPhoto(){
+        if delegate != nil{
+            if userPhotoImageView.image != nil {
+                let userImage = userPhotoImageView.image
+                delegate?.getUserPhoto(image: userImage!)
+            }
+        }
+        else{
+            print("Delegate is NIL")
+        }
+    }
+    
+    // Function to update the properties of AdminVC
     func updateInterface(){
         
         loadUserPhoto()
+        sendUserPhoto()
         
         title = "Admin Panel"
         productPriceTextfield.delegate = self
@@ -191,6 +212,7 @@ class AdminPanelViewController: UITableViewController {
         alertController.addAction(action)
         self.present(alertController, animated: true, completion: nil)
     }
+    
 }
 
 extension AdminPanelViewController: UITextFieldDelegate{

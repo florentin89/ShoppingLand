@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductsViewController: UIViewController {
+class ProductsViewController: UIViewController, PhotoSentDelegate {
     
     @IBOutlet weak var productsTableView: UITableView!
     @IBOutlet weak var numberOfProductsInCartLabel: UILabel!
@@ -24,7 +24,7 @@ class ProductsViewController: UIViewController {
     // Life Cycle States
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         accessToAdminPanel()
         updateProducts()
 
@@ -32,15 +32,35 @@ class ProductsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+ 
+        userAvatarImageView.contentMode = .scaleToFill
         updateProducts()
         
-        // TO DO: Transfer the UserImage to this controller
+    }
+    
+    // Get UserPhoto from AdminViewController using the Delegation Pattern
+    func getUserPhoto(image: UIImage) {
+        userAvatarImageView.image = image
+        print(image)
+    }
+    
+    // Function to send details about a product from this VC to ProductDetailsViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let selectedIndexPath = productsTableView.indexPathForSelectedRow{
+            let destinationVC = segue.destination as! ProductDetailsViewController
+            destinationVC.selectedProduct = productsArray[selectedIndexPath.row]
+        }
+        
+        if segue.identifier == "AdminPanelStoryboard" {
+            let adminVC: AdminPanelViewController = segue.destination as! AdminPanelViewController
+            adminVC.delegate = self
+        }
     }
     
     // Function to update the Products Table View
     func updateProducts(){
-        
+       
         numberOfProductsInCartLabel.layer.cornerRadius = numberOfProductsInCartLabel.frame.size.height / 2
         
         do{
@@ -138,6 +158,8 @@ class ProductsViewController: UIViewController {
         showAlertWith(title: "Added", message: "Product added with success.")
         
     }
+    
+    
 }
 
 // ProductsTableView Protocols
@@ -183,16 +205,7 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource{
         self.performSegue(withIdentifier: "goToDetails", sender: indexPath)
     }
     
-    // Function to send details about a product from this VC to ProductDetailsViewController
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if let selectedIndexPath = productsTableView.indexPathForSelectedRow{
-            let destinationVC = segue.destination as! ProductDetailsViewController
-            
-            destinationVC.selectedProduct = productsArray[selectedIndexPath.row]
-            
-        }
-    }
+ 
 }
 
 
