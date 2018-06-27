@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class ProductDetailsViewController: UITableViewController {
     
@@ -35,9 +36,25 @@ class ProductDetailsViewController: UITableViewController {
         }
     }
     
+    // Share the ProductName, ProductImage and Website on Socials
     @IBAction func shareProductButton(_ sender: UIButton) {
     
-        // Share on FB / Twitter
+        guard let text = productNameLabel.text else {
+            productNameLabel.text = ""
+            return
+        }
+        
+        guard let image = productImageView.image else {
+            productImageView.image = UIImage()
+            return
+        }
+        
+        guard let myWebsite = NSURL(string:"https://theappexperts.co.uk/") else { return }
+        
+        let shareAll = [text, image, myWebsite] as [Any]
+        let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
         
     }
 }
