@@ -18,9 +18,7 @@
 		B522974B20DC1510006A56DA /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522974A20DC1510006A56DA /* ProductTableViewCell.swift */; };
 		B536AB5920E3E6C200469324 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B536AB5820E3E6C200469324 /* Settings.bundle */; };
 		B536AB5B20E3EC9E00469324 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536AB5A20E3EC9E00469324 /* SettingsBundleHelper.swift */; };
-		B536AB5D20E406CD00469324 /* silverBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B536AB5C20E406CD00469324 /* silverBackground.jpg */; };
-		B5DF6DDA20DFDEB000A06435 /* ImageProduct.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B5DF6DD920DFDEB000A06435 /* ImageProduct.jpg */; };
-		B5DF6DDC20DFDEBD00A06435 /* ImageUser.png in Resources */ = {isa = PBXBuildFile; fileRef = B5DF6DDB20DFDEBD00A06435 /* ImageUser.png */; };
+		B5B64BF920E63DCA0023443F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B64BF820E63DCA0023443F /* Constants.swift */; };
 		B5DF6DDE20DFF67200A06435 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DF6DDD20DFF67200A06435 /* CoreDataStack.swift */; };
 		B5DF6DE520DFFDC300A06435 /* ShoppingLand.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5DF6DE320DFFDC300A06435 /* ShoppingLand.xcdatamodeld */; };
 		B5E7793420DD31790027C8F3 /* AdminPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E7793320DD31790027C8F3 /* AdminPanelViewController.swift */; };
@@ -43,9 +41,7 @@
 		B522974A20DC1510006A56DA /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		B536AB5820E3E6C200469324 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B536AB5A20E3EC9E00469324 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
-		B536AB5C20E406CD00469324 /* silverBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = silverBackground.jpg; sourceTree = "<group>"; };
-		B5DF6DD920DFDEB000A06435 /* ImageProduct.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ImageProduct.jpg; sourceTree = "<group>"; };
-		B5DF6DDB20DFDEBD00A06435 /* ImageUser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageUser.png; sourceTree = "<group>"; };
+		B5B64BF820E63DCA0023443F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B5DF6DDD20DFF67200A06435 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B5DF6DE420DFFDC300A06435 /* ShoppingLand.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingLand.xcdatamodel; sourceTree = "<group>"; };
 		B5E7793320DD31790027C8F3 /* AdminPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPanelViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +104,7 @@
 		B522972B20DBF47E006A56DA /* ShoppingLand */ = {
 			isa = PBXGroup;
 			children = (
+				B5B64BFA20E643A20023443F /* Constants */,
 				B522974420DBF515006A56DA /* CoreData */,
 				B522974120DBF4E9006A56DA /* Model */,
 				B522974220DBF4EF006A56DA /* View */,
@@ -120,8 +117,8 @@
 		B522974120DBF4E9006A56DA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B522974A20DC1510006A56DA /* ProductTableViewCell.swift */,
 				B5E7793720DD55CE0027C8F3 /* CartTableViewCell.swift */,
+				B522974A20DC1510006A56DA /* ProductTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,15 +156,20 @@
 		B522974520DBF51F006A56DA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B5DF6DD920DFDEB000A06435 /* ImageProduct.jpg */,
-				B5DF6DDB20DFDEBD00A06435 /* ImageUser.png */,
-				B536AB5C20E406CD00469324 /* silverBackground.jpg */,
 				B522973820DBF481006A56DA /* LaunchScreen.storyboard */,
 				B522973B20DBF481006A56DA /* Info.plist */,
 				B536AB5820E3E6C200469324 /* Settings.bundle */,
 				B536AB5A20E3EC9E00469324 /* SettingsBundleHelper.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B5B64BFA20E643A20023443F /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B5B64BF820E63DCA0023443F /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		B5DF6DEA20E0070500A06435 /* Model */ = {
@@ -190,6 +192,7 @@
 				B522972520DBF47E006A56DA /* Sources */,
 				B522972620DBF47E006A56DA /* Frameworks */,
 				B522972720DBF47E006A56DA /* Resources */,
+				614AE1783B1639FEABF6DBC5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,11 +241,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5DF6DDC20DFDEBD00A06435 /* ImageUser.png in Resources */,
 				B522973A20DBF481006A56DA /* LaunchScreen.storyboard in Resources */,
-				B5DF6DDA20DFDEB000A06435 /* ImageProduct.jpg in Resources */,
 				B522973720DBF481006A56DA /* Assets.xcassets in Resources */,
-				B536AB5D20E406CD00469324 /* silverBackground.jpg in Resources */,
 				B536AB5920E3E6C200469324 /* Settings.bundle in Resources */,
 				B522973220DBF47F006A56DA /* Main.storyboard in Resources */,
 			);
@@ -251,6 +251,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		614AE1783B1639FEABF6DBC5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ShoppingLand/Pods-ShoppingLand-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShoppingLand/Pods-ShoppingLand-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A91F92377973F25A87F973C7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -287,6 +305,7 @@
 				B536AB5B20E3EC9E00469324 /* SettingsBundleHelper.swift in Sources */,
 				B5FC7CE820E158E900530F21 /* GoogleSearchModel.swift in Sources */,
 				B5E7793820DD55CE0027C8F3 /* CartTableViewCell.swift in Sources */,
+				B5B64BF920E63DCA0023443F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +460,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Florentin.ShoppingLand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -461,7 +480,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Florentin.ShoppingLand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

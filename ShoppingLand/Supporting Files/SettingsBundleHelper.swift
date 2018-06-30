@@ -12,9 +12,9 @@ import UIKit
 
 class SettingsBundleHelper {
     struct SettingsBundleKeys {
-        static let Reset = "RESET_APP_KEY"
-        static let BuildVersionKey = "build_preference"
-        static let AppVersionKey = "version_preference"
+        static let Reset = Constants.resetAppKey
+        static let BuildVersionKey = Constants.buildVersionKey
+        static let AppVersionKey = Constants.appVersionKey
     }
     class func checkAndExecuteSettings() {
         if UserDefaults.standard.bool(forKey: SettingsBundleKeys.Reset) {

@@ -20,25 +20,26 @@ class ProductDetailsViewController: UITableViewController {
     
     var selectedProduct: Product!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Product Details"
+        title = Constants.productDetailsTitle
         
         DispatchQueue.main.async {
-         
-            self.productImageView.image = UIImage(named: "ImageProduct.jpg")
-            self.productNameLabel.text = "Name: \(self.selectedProduct.name!)"
-            self.productCategoryLabel.text = "Category: \(self.selectedProduct.category!)"
-            self.productDescriptionLabel.text = "Description: \(self.selectedProduct.prodDescription!)"
-            self.productPriceLabel.text = "Price: \(String(format: "%.2f", self.selectedProduct.price))"
+            
+            self.productImageView.image = UIImage(named: Constants.defaultPhotoProduct)
+            self.productNameLabel.text = Constants.productNameLabel + self.selectedProduct.name!
+            self.productCategoryLabel.text = Constants.productCategoryLabel + self.selectedProduct.category!
+            self.productDescriptionLabel.text = Constants.productDescriptionLabel + self.selectedProduct.prodDescription!
+            self.productPriceLabel.text = Constants.productPriceLabel + String(format: "%.2f", self.selectedProduct.price)
             
         }
     }
     
     // Share the ProductName, ProductImage and Website on Socials
     @IBAction func shareProductButton(_ sender: UIButton) {
-    
+        
         guard let text = productNameLabel.text else {
             productNameLabel.text = ""
             return
@@ -49,7 +50,7 @@ class ProductDetailsViewController: UITableViewController {
             return
         }
         
-        guard let myWebsite = NSURL(string:"https://theappexperts.co.uk/") else { return }
+        guard let myWebsite = NSURL(string: Constants.websiteAppExperts) else { return }
         
         let shareAll = [text, image, myWebsite] as [Any]
         let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)

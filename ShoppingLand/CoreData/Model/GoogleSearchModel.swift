@@ -11,7 +11,7 @@ import Foundation
 // Structure for Google JSON Response for Images Search
 struct GoogleSearchModel: Codable {
     let kind: String
-    let url: URL
+    let url: URLGoogle
     let queries: Queries
     let context: Context
     let searchInformation: SearchInformation
@@ -68,6 +68,6 @@ struct Spelling: Codable {
     let correctedQuery, htmlCorrectedQuery: String
 }
 
-struct URL: Codable {
+struct URLGoogle: Codable {
     let type, template: String
 }

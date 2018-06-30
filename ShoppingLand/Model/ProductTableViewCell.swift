@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol CellDelegate: class {
+    
+    // Function to detect when the user press the Add To Cart button.
+    func didTapAddToCart(_ cell: ProductTableViewCell)
+}
+
 class ProductTableViewCell: UITableViewCell {
 
   
@@ -19,6 +25,11 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var addToCartBtn: UIButton!
     
+    weak var delegate: CellDelegate?
+   
+    @IBAction func addToCartPressed(_ sender: Any) {
+        delegate?.didTapAddToCart(self)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

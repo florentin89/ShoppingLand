@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Foundation
+import Kingfisher
 
-class ProductsViewController: UIViewController, PhotoSentDelegate {
+class ProductsViewController: UIViewController, CellDelegate {
     
     @IBOutlet weak var productsTableView: UITableView!
     @IBOutlet weak var numberOfProductsInCartLabel: UILabel!
@@ -17,33 +19,58 @@ class ProductsViewController: UIViewController, PhotoSentDelegate {
     @IBOutlet weak var helloUserLabel: UILabel!
     
     var counterItem = 0
-    var productCell = ProductTableViewCell()
-    var cartVC = CartViewController()
-    var adminVC = AdminPanelViewController()
+    var query: String?
+    var googlePhotosArray = [Item]()
+    var selectedProductsArray = [Product]()
     
     // Life Cycle States
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         registerSettingsBundle()
-        // Use Observer Pattern to detect when the background was changed
+        // Use Notification Pattern to detect when the background was changed
         NotificationCenter.default.addObserver(self, selector: #selector(ProductsViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
         defaultsChanged()
-        
-        accessToAdminPanel()
         updateProducts()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
- 
-        userAvatarImageView.contentMode = .scaleToFill
-        updateProducts()
         
+        updateProducts()
     }
+    
+    // Download photos from Google for products avatar
+    func fetchPhotosForProductsFromGoogle(){
+        
+        guard let requestURL = URL(string: URLGoogle.googleAPIUrl + "\(query ?? Constants.defaultGoogleImage)" + URLGoogle.googleSearchPhotosOnly + URLGoogle.googleSearchEngineID + URLGoogle.googleAPIKey)
+            else{
+                fatalError(Constants.urlNotFound)
+        }
+        
+        URLSession.shared.dataTask(with: requestURL) { (data, response, error) in
+            
+            guard error == nil else {
+                print(error?.localizedDescription ?? Constants.errorURLSesion)
+                return
+            }
+            do {
+                
+                let googlePhotosList = try JSONDecoder().decode(GoogleSearchModel.self, from: data!)
+                
+                self.googlePhotosArray = self.googlePhotosArray + googlePhotosList.items
+                
+            } catch {
+                print(error.localizedDescription)
+            }
+            DispatchQueue.main.async {
+                
+                self.productsTableView.reloadData()
+            }
+            
+            }.resume()
+    }
+    
     
     // Get UserPhoto from AdminViewController using the Delegation Pattern
     func getUserPhoto(image: UIImage) {
@@ -51,23 +78,34 @@ class ProductsViewController: UIViewController, PhotoSentDelegate {
         print(image)
     }
     
-    // Function to send details about a product from this VC to ProductDetailsViewController
+    // Function used to load the selected User Photo
+    func getUserPhoto(){
+        
+        // Decode the selected user photo
+        guard let data = UserDefaults.standard.object(forKey: Constants.nameOfSavedUserPhoto) as? NSData else{
+            userAvatarImageView.image = UIImage(named: Constants.defaultPhotoUser)
+            return
+        }
+        userAvatarImageView.image = UIImage(data: data as Data)
+        userAvatarImageView.contentMode = .scaleToFill
+    }
+    
+    // Function to send details about a product from this VC to another VC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let selectedIndexPath = productsTableView.indexPathForSelectedRow{
-            let destinationVC = segue.destination as! ProductDetailsViewController
-            destinationVC.selectedProduct = productsArray[selectedIndexPath.row]
-        }
-        
-        if segue.identifier == "AdminPanelStoryboard" {
-            let adminVC: AdminPanelViewController = segue.destination as! AdminPanelViewController
-            adminVC.delegate = self
+            let detailsVC = segue.destination as! ProductDetailsViewController
+            detailsVC.selectedProduct = productsArray[selectedIndexPath.row]
         }
     }
     
     // Function to update the Products Table View
     func updateProducts(){
-       
+        
+        getUserPhoto()
+        accessToAdminPanel()
+        fetchPhotosForProductsFromGoogle()
+        
         numberOfProductsInCartLabel.layer.cornerRadius = numberOfProductsInCartLabel.frame.size.height / 2
         
         do{
@@ -82,7 +120,7 @@ class ProductsViewController: UIViewController, PhotoSentDelegate {
             productsTableView.reloadData()
         }
         catch{
-            print("Error fetch")
+            print(Constants.errorMessage)
         }
     }
     
@@ -102,9 +140,65 @@ class ProductsViewController: UIViewController, PhotoSentDelegate {
     // Function to open the AdminPanelViewController
     @objc func adminImageTapped(gesture: UIGestureRecognizer) {
         
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let adminPanelVC = storyBoard.instantiateViewController(withIdentifier: "AdminPanelStoryboard") as! AdminPanelViewController
+        let storyBoard : UIStoryboard = UIStoryboard(name: Constants.nameOfMainSB, bundle:nil)
+        let adminPanelVC = storyBoard.instantiateViewController(withIdentifier: Constants.adminPanelStoryboard) as! AdminPanelViewController
         self.navigationController?.pushViewController(adminPanelVC, animated: true)
+        
+    }
+    
+    // Show a custom Alert
+    func showAlertWith(title: String, message: String, style: UIAlertControllerStyle = .alert) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
+        let action = UIAlertAction(title: title, style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(action)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // Func to register the Settings Bundle when the app start
+    func registerSettingsBundle(){
+        let appDefaults = [String:AnyObject]()
+        UserDefaults.standard.register(defaults: appDefaults)
+    }
+    
+    // Func which is called when we modify the default settings in the bundle
+    @objc func defaultsChanged(){
+        if UserDefaults.standard.bool(forKey: Constants.silverThemeKey) {
+            
+            let silverBackground = UIImageView(image: UIImage(named: Constants.silverBackgroundImage))
+            silverBackground.frame = self.productsTableView.frame
+            self.productsTableView.backgroundView = silverBackground
+            self.view.backgroundColor = UIColor.lightGray
+            
+        }
+        else {
+            self.productsTableView.backgroundView = UIImageView()
+            self.view.backgroundColor = UIColor.white
+            
+        }
+    }
+    
+    // Function to add the product into the cart
+    func addProductToCartButton(_ sender: UIButton) {
+        
+        let buttonPosition : CGPoint = sender.convert(sender.bounds.origin, to: self.productsTableView)
+        
+        let indexPath = self.productsTableView.indexPathForRow(at: buttonPosition)!
+        
+        addProduct(at: indexPath)
+    }
+    
+    func addProduct(at indexPath: IndexPath) {
+        let cell = productsTableView.cellForRow(at: indexPath) as! ProductTableViewCell
+        
+        let imageViewPosition : CGPoint = cell.productImageView.convert(cell.productImageView.bounds.origin, to: self.view)
+        
+        let imgViewTemp = UIImageView(frame: CGRect(x: imageViewPosition.x, y: imageViewPosition.y, width: cell.productImageView.frame.size.width, height: cell.productImageView.frame.size.height))
+        
+        imgViewTemp.image = cell.productImageView.image
+        
+        animationProduct(tempView: imgViewTemp)
         
     }
     
@@ -131,7 +225,10 @@ class ProductsViewController: UIViewController, PhotoSentDelegate {
                 UIView.animate(withDuration: 1.0, animations: {
                     
                     self.counterItem += 1
-                    self.numberOfProductsInCartLabel.text = "\(self.counterItem)"
+                    self.numberOfProductsInCartLabel.text = String(self.counterItem)
+                    self.tabBarController?.tabBar.items?[1].badgeValue = String(self.counterItem)
+                    
+                    
                     self.shoppingCartButton.animationZoom(scaleX: 1.4, y: 1.4)
                 }, completion: {_ in
                     self.shoppingCartButton.animationZoom(scaleX: 1.0, y: 1.0)
@@ -140,52 +237,13 @@ class ProductsViewController: UIViewController, PhotoSentDelegate {
         })
     }
     
-    // Show a custom Alert
-    func showAlertWith(title: String, message: String, style: UIAlertController.Style = .alert) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
-        let action = UIAlertAction(title: title, style: .default) { (action) in
-            self.dismiss(animated: true, completion: nil)
-        }
-        alertController.addAction(action)
-        self.present(alertController, animated: true, completion: nil)
+    // Func which will add the product into an array of products when the user press Add To Cart
+    func didTapAddToCart(_ cell: ProductTableViewCell) {
+        let indexPath = self.productsTableView.indexPath(for: cell)
+
+        addProduct(at: indexPath!)
+        selectedProductsArray.append(productsArray[(indexPath?.row)!])
     }
-    
-    // Function to add the product into the cart
-    @IBAction func addProductToCartButton(_ sender: UIButton) {
-        
-        let buttonPosition : CGPoint = sender.convert(sender.bounds.origin, to: self.productsTableView)
-        let indexPath = self.productsTableView.indexPathForRow(at: buttonPosition)!
-        let cell = productsTableView.cellForRow(at: indexPath) as! ProductTableViewCell
-        let imageViewPosition : CGPoint = cell.productImageView.convert(cell.productImageView.bounds.origin, to: self.view)
-        let imgViewTemp = UIImageView(frame: CGRect(x: imageViewPosition.x, y: imageViewPosition.y, width: cell.productImageView.frame.size.width, height: cell.productImageView.frame.size.height))
-        imgViewTemp.image = cell.productImageView.image
-        
-        animationProduct(tempView: imgViewTemp)
-        
-        showAlertWith(title: "Added", message: "Product added with success.")
-        
-    }
-    
-    func registerSettingsBundle(){
-        let appDefaults = [String:AnyObject]()
-        UserDefaults.standard.register(defaults: appDefaults)
-    }
-    @objc func defaultsChanged(){
-        if UserDefaults.standard.bool(forKey: "SilverThemeKey") {
-            
-            let silverBackground = UIImageView(image: UIImage(named: "silverBackground.jpg"))
-            silverBackground.frame = self.productsTableView.frame
-            self.productsTableView.backgroundView = silverBackground
-            self.view.backgroundColor = UIColor.lightGray
-            
-        }
-        else {
-            self.productsTableView.backgroundView = UIImageView()
-            self.view.backgroundColor = UIColor.white
-            
-        }
-    }
-    
 }
 
 // ProductsTableView Protocols
@@ -202,38 +260,33 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = productsTableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductTableViewCell
+        let cell = productsTableView.dequeueReusableCell(withIdentifier: Constants.identifierProductCell, for: indexPath) as! ProductTableViewCell
+        cell.delegate = self
         
-        // TODO: Get the image for each product from Google using Google APIs (Custom Search Engine Key + API Key)
-        
-       // let productImageURL = "https://www.googleapis.com/customsearch/v1?q=\(productsArray[indexPath.row].name ?? "flagUK")&imgType=photo&imgSize=medium&searchType=image&key=AIzaSyA_QlOnYMZLbFCV_oh49Z97_tx7zA-Qeig&cx=004797504301667307438:v974oybby28"
-
-        DispatchQueue.main.async {
-          
-            // Load all the images Async for a good optimization
-
-        }
-        
-        cell.productTitleLabel.text = "\(productsArray[indexPath.row].name!)"
-        cell.productDescriptionLabel.text = "\(productsArray[indexPath.row].prodDescription!)"
-        cell.productPriceLabel.text = "\(String(format: "%.2f", productsArray[indexPath.row].price)) £" 
-        cell.productImageView.image = UIImage(named: "ImageProduct.jpg")
+        cell.productTitleLabel.text = productsArray[indexPath.row].name!
+        cell.productDescriptionLabel.text = productsArray[indexPath.row].prodDescription!
+        cell.productPriceLabel.text = String(format: "%.2f", productsArray[indexPath.row].price) + Constants.currencyPound
+        cell.productImageView.image = UIImage(named: Constants.defaultPhotoProduct)
         
         cell.addToCartBtn.layer.cornerRadius = 8
         cell.addToCartBtn.layer.borderWidth = 2
         cell.addToCartBtn.layer.borderColor = UIColor.white.cgColor
         
-       
+        DispatchQueue.main.async {
+            
+            let productPhotoURL = self.googlePhotosArray.first?.link ?? Constants.defaultPhotoProduct
+            let resourcePhoto = ImageResource(downloadURL: URL(string: productPhotoURL)!, cacheKey: productPhotoURL)
+            
+            cell.productImageView.kf.setImage(with: resourcePhoto)
+            
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "goToDetails", sender: indexPath)
+        self.performSegue(withIdentifier: Constants.segueForDetailsPage, sender: indexPath)
     }
-    
- 
 }
-
 
 // Extension for zoom animation when the user add a product in the Cart
 extension UIView{
@@ -244,4 +297,12 @@ extension UIView{
     func animationRoted(angle : CGFloat) {
         self.transform = self.transform.rotated(by: angle)
     }
+}
+
+// Set URL Google
+extension URLGoogle{
+    static let googleAPIUrl = Constants.googleAPIUrl
+    static let googleSearchPhotosOnly = Constants.googleSearchPhotosOnly
+    static let googleSearchEngineID = Constants.googleSearchEngineID
+    static let googleAPIKey = Constants.googleAPIKey
 }

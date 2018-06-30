@@ -8,6 +8,6 @@ target 'ShoppingLand' do
   use_frameworks!
 
   # Pods for ShoppingLand
-
+pod 'Kingfisher', '~> 4.0'
 
 end

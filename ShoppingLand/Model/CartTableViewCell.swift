@@ -17,6 +17,8 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var cartProductNameLabel: UILabel!
     @IBOutlet weak var cartProductPriceLabel: UILabel!
     @IBOutlet weak var cartTotalPriceLabel: UILabel!
+    @IBOutlet weak var buyFromAmazonBtn: UIButton!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
