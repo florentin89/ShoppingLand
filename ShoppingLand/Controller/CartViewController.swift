@@ -14,6 +14,7 @@ class CartViewController: UIViewController {
     
     var productsInCartArray = [Product]()
     var productPricesArray = [Float]()
+    var totalSum: Float?
     
     // Life Cycle States
     override func viewDidLoad() {
@@ -24,21 +25,24 @@ class CartViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+ 
         updateCartTableView()
     }
+    
     
     // Append the selectedProducts into productsInCartArray using the TabBarController
     func fetchSelectedProducts() {
         
         productsInCartArray = ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).selectedProductsArray
+        productPricesArray = ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).priceForSelectedProductsArray
+        totalSum = productPricesArray.reduce(0, +)
     }
     
     // Function to update the Cart table view
     func updateCartTableView(){
         
         fetchSelectedProducts()
-        
+        //print(productPricesArray)
         // Remove last cell from TableView
         cartTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: cartTableView.frame.size.width, height: 1))
         cartTableView.reloadData()
@@ -66,6 +70,17 @@ class CartViewController: UIViewController {
         
         showAlertWith(title: Constants.inProgress, message: Constants.messageInProgress)
     }
+    
+    @IBAction func clearAllProducts(_ sender: Any) {
+        
+        productsInCartArray = [Product]()
+        totalSum = 0
+        self.tabBarController?.tabBar.items?[1].badgeValue = String(0)
+        
+        cartTableView.reloadData()
+        
+    }
+    
     
     // Show a custom Alert
     func showAlertWith(title: String, message: String, style: UIAlertControllerStyle = .alert) {
@@ -105,7 +120,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
             cell.cartProductPriceLabel.text = String(self.productsInCartArray[indexPath.row].price) + Constants.currencyPound
             cell.cartProductImageView.image = UIImage(named: Constants.defaultPhotoProduct)
             }
-            
+
             cell.buyFromAmazonBtn.layer.cornerRadius = 8
             cell.buyFromAmazonBtn.layer.borderWidth = 2
             cell.buyFromAmazonBtn.layer.borderColor = UIColor.white.cgColor
@@ -119,16 +134,11 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
             
             let cell = cartTableView.dequeueReusableCell(withIdentifier: Constants.identifierCartTotalPriceCell, for: indexPath) as! CartTableViewCell
             
-            var totalSum: Float = 0
-            
-            for eachProduct in productsInCartArray{
-                
-               productPricesArray.append(eachProduct.price)
-               totalSum = productPricesArray.reduce(0, +)
-                
-              cell.cartTotalPriceLabel.text = String(totalSum) + Constants.currencyPound
-                
-                print(productPricesArray)
+            if let finalPrice = totalSum, finalPrice > 0 {
+                cell.cartTotalPriceLabel.text = String(finalPrice) + Constants.currencyPound
+            }
+            else{
+                cell.cartTotalPriceLabel.text = String(0.00) + Constants.currencyPound
             }
             
             return cell

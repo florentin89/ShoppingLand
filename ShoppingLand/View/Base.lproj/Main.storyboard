@@ -302,7 +302,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTy-y2-4h2">
-                                                    <rect key="frame" x="104.66666666666669" y="21" width="73" height="28"/>
+                                                    <rect key="frame" x="50.666666666666657" y="21" width="73" height="28"/>
                                                     <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -318,8 +318,8 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Price £" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="db1-H4-yuz">
-                                                    <rect key="frame" x="217.66666666666666" y="21" width="95.333333333333343" height="28"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="163.66666666666663" y="21" width="149.33333333333337" height="28"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                                     <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -357,7 +357,11 @@
                         <viewLayoutGuide key="safeArea" id="VGK-wY-lAt"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cart Shop" id="458-LA-9f8">
-                        <barButtonItem key="rightBarButtonItem" title="Clear All" id="2ov-79-I5k"/>
+                        <barButtonItem key="rightBarButtonItem" title="Clear All" id="2ov-79-I5k">
+                            <connections>
+                                <action selector="clearAllProducts:" destination="tqn-nE-pm7" id="99E-pE-uq0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cartTableView" destination="G4L-ke-dr6" id="sQY-fc-tqK"/>

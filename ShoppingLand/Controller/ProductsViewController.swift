@@ -22,6 +22,7 @@ class ProductsViewController: UIViewController, CellDelegate {
     var query: String?
     var googlePhotosArray = [Item]()
     var selectedProductsArray = [Product]()
+    var priceForSelectedProductsArray = [Float]()
     
     // Life Cycle States
     override func viewDidLoad() {
@@ -179,7 +180,7 @@ class ProductsViewController: UIViewController, CellDelegate {
         }
     }
     
-    // Function to add the product into the cart
+    // Function to get the CGPoint position of Add To Cart buton.
     func addProductToCartButton(_ sender: UIButton) {
         
         let buttonPosition : CGPoint = sender.convert(sender.bounds.origin, to: self.productsTableView)
@@ -189,6 +190,7 @@ class ProductsViewController: UIViewController, CellDelegate {
         addProduct(at: indexPath)
     }
     
+    // Function to animate the product from respective position to the Cart icon position.
     func addProduct(at indexPath: IndexPath) {
         let cell = productsTableView.cellForRow(at: indexPath) as! ProductTableViewCell
         
@@ -228,7 +230,6 @@ class ProductsViewController: UIViewController, CellDelegate {
                     self.numberOfProductsInCartLabel.text = String(self.counterItem)
                     self.tabBarController?.tabBar.items?[1].badgeValue = String(self.counterItem)
                     
-                    
                     self.shoppingCartButton.animationZoom(scaleX: 1.4, y: 1.4)
                 }, completion: {_ in
                     self.shoppingCartButton.animationZoom(scaleX: 1.0, y: 1.0)
@@ -242,7 +243,8 @@ class ProductsViewController: UIViewController, CellDelegate {
         let indexPath = self.productsTableView.indexPath(for: cell)
 
         addProduct(at: indexPath!)
-        selectedProductsArray.append(productsArray[(indexPath?.row)!])
+        selectedProductsArray.append(productsArray[(indexPath?.row)!]) // Append products for cart
+        priceForSelectedProductsArray.append(productsArray[(indexPath?.row)!].price) // Append prices for selected products
     }
 }
 

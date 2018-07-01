@@ -46,7 +46,7 @@ class AdminPanelViewController: UITableViewController {
         loadUserPhoto()
         
         title = Constants.adminPanelTitle
-        productPriceTextfield.delegate = self
+        //productPriceTextfield.delegate = self
         userPhotoImageView.backgroundColor = .lightGray
         adminUsernameLabel.text = Constants.currentUser + currentUser
         
