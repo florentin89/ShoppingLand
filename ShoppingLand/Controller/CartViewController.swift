@@ -74,11 +74,15 @@ class CartViewController: UIViewController {
     @IBAction func clearAllProducts(_ sender: Any) {
         
         productsInCartArray = [Product]()
+        productPricesArray = [Float]()
         totalSum = 0
         self.tabBarController?.tabBar.items?[1].badgeValue = String(0)
         
         cartTableView.reloadData()
         
+        ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).selectedProductsArray = productsInCartArray
+        ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).priceForSelectedProductsArray = productPricesArray
+        //TO DO: reset the badge to 0 and products in cart to 0
     }
     
     
