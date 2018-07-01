@@ -46,6 +46,7 @@ enum Constants {
     static let productNameLabel = "Name: "
     static let productCategoryLabel = "Category: "
     static let productDescriptionLabel = "Description: "
+    static let floatTwoDecimals = "%.2f"
     static let productPriceLabel = "Price: "
     static let amazonURL = "https://www.amazon.co.uk/s/field-keywords="
     static let amazonDefaultSearch = "Learn+Swift+4"

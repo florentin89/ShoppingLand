@@ -10,8 +10,10 @@ import UIKit
 
 class CartViewController: UIViewController {
     
+    // Interface Links
     @IBOutlet weak var cartTableView: UITableView!
     
+    // Properties
     var productsInCartArray = [Product]()
     var productPricesArray = [Float]()
     var totalSum: Float?
@@ -42,9 +44,7 @@ class CartViewController: UIViewController {
     func updateCartTableView(){
         
         fetchSelectedProducts()
-        //print(productPricesArray)
-        // Remove last cell from TableView
-        cartTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: cartTableView.frame.size.width, height: 1))
+        cartTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: cartTableView.frame.size.width, height: 1)) // Remove last cell from TableView
         cartTableView.reloadData()
     }
    
@@ -71,14 +71,22 @@ class CartViewController: UIViewController {
         showAlertWith(title: Constants.inProgress, message: Constants.messageInProgress)
     }
     
+    // Clear all products from the cart
     @IBAction func clearAllProducts(_ sender: Any) {
         
+        // Reset Cart tableView
         productsInCartArray = [Product]()
+        productPricesArray = [Float]()
         totalSum = 0
         self.tabBarController?.tabBar.items?[1].badgeValue = String(0)
         
+        // Remove selected products from ProductsViewController
+        ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).selectedProductsArray = [Product]()
+        ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).priceForSelectedProductsArray = [Float]()
+        ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).counterItem = 0
+        ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).numberOfProductsInCartLabel.text = String(0)
+        UIApplication.shared.applicationIconBadgeNumber = 0
         cartTableView.reloadData()
-        
     }
     
     

@@ -13,6 +13,7 @@ var productsArray = [Product]()
 
 class AdminPanelViewController: UITableViewController {
     
+    // Interface Links
     @IBOutlet var adminTableView: UITableView!
     @IBOutlet weak var adminUsernameLabel: UILabel!
     @IBOutlet weak var productNameTextfield: UITextField!
@@ -23,32 +24,45 @@ class AdminPanelViewController: UITableViewController {
     @IBOutlet weak var saveBtnOutlet: UIButton!
     @IBOutlet weak var resetBtnOutlet: UIButton!
     
+    // Properties
     var currentUser = UIDevice.current.name
     
     // Life Cycle States
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //loadUserPhoto()
         updateInterface()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         resetAllFields()
-        userPhotoImageView.contentMode = .scaleToFill
+        loadUserPhoto()
+        
     }
     
     // Function to update the properties of AdminVC
     func updateInterface(){
-        
-        loadUserPhoto()
+        initializeTextFields()
+        customizeLayout()
+        dismissKeyboard()
+    }
+    
+    // Function to initalize the textfields
+    func initializeTextFields(){
         
         title = Constants.adminPanelTitle
-        //productPriceTextfield.delegate = self
-        userPhotoImageView.backgroundColor = .lightGray
-        adminUsernameLabel.text = Constants.currentUser + currentUser
+        productNameTextfield.delegate = self
+        productCategoryTextField.delegate = self
+        productDescriptionTextView.delegate = self
+        productPriceTextfield.delegate = self
+        productPriceTextfield.keyboardType = .decimalPad
+    }
+    
+    // Func to customize the layout interface
+    func customizeLayout(){
         
         // Customize Save Btn
         saveBtnOutlet.layer.cornerRadius = 10
@@ -65,10 +79,12 @@ class AdminPanelViewController: UITableViewController {
         productDescriptionTextView.layer.borderWidth = 1
         productDescriptionTextView.layer.borderColor = UIColor.black.cgColor
         
-        dismissKeyboard()
-        
         // Remove last cell from TableView
         adminTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: adminTableView.frame.size.width, height: 1))
+        
+        userPhotoImageView.backgroundColor = .lightGray
+        userPhotoImageView.contentMode = .scaleToFill
+        adminUsernameLabel.text = Constants.currentUser + currentUser
     }
     
     // Close the keyboard when you press outside of textfields
@@ -184,15 +200,45 @@ class AdminPanelViewController: UITableViewController {
     
 }
 
-extension AdminPanelViewController: UITextFieldDelegate{
+extension AdminPanelViewController: UITextFieldDelegate, UITextViewDelegate{
     
-    // Function which allow the user to enter only digits for Price textfield
+    // Function to verify the TextFields input
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
-        let allowedCharacters = CharacterSet.decimalDigits
-        let characterSet = CharacterSet(charactersIn: string)
-        return allowedCharacters.isSuperset(of: characterSet)
+        // Don't allow user to enter spaces in textfields at beginning
+        if textField == productNameTextfield || textField == productCategoryTextField {
+
+            if Int(range.location) == 0 && (string == " ") {
+                return false
+            }
+            else{
+                return true
+            }
+        }
+        //allow the user to enter only digits and punctuation for Price textfield
+        if (textField == productPriceTextfield) {
+            let allowedCharacters = "0123456789."
+            return allowedCharacters.contains(string) || range.length == 1
+        }
+
+        return true
     }
+    
+    // Function to verify the TextViews input
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        if textView == productDescriptionTextView{
+            if Int(range.location) == 0 && (text == " ") {
+                return false
+            }
+            else{
+                return true
+            }
+        }
+        
+        return true
+    }
+
 }
 
 // Extension for UserPhoto ImageView to dismiss the Controller when you press Cancel or to load the selected image from library

@@ -12,12 +12,14 @@ import Kingfisher
 
 class ProductsViewController: UIViewController, CellDelegate {
     
+    // Interface Links
     @IBOutlet weak var productsTableView: UITableView!
     @IBOutlet weak var numberOfProductsInCartLabel: UILabel!
     @IBOutlet weak var shoppingCartButton: UIButton!
     @IBOutlet weak var userAvatarImageView: UIImageView!
     @IBOutlet weak var helloUserLabel: UILabel!
     
+    // Properties
     var counterItem = 0
     var query: String?
     var googlePhotosArray = [Item]()
@@ -229,8 +231,8 @@ class ProductsViewController: UIViewController, CellDelegate {
                     self.counterItem += 1
                     self.numberOfProductsInCartLabel.text = String(self.counterItem)
                     self.tabBarController?.tabBar.items?[1].badgeValue = String(self.counterItem)
+                    self.shoppingCartButton.animationZoom(scaleX: 1.3, y: 1.3)
                     
-                    self.shoppingCartButton.animationZoom(scaleX: 1.4, y: 1.4)
                 }, completion: {_ in
                     self.shoppingCartButton.animationZoom(scaleX: 1.0, y: 1.0)
                 })
@@ -241,7 +243,7 @@ class ProductsViewController: UIViewController, CellDelegate {
     // Func which will add the product into an array of products when the user press Add To Cart
     func didTapAddToCart(_ cell: ProductTableViewCell) {
         let indexPath = self.productsTableView.indexPath(for: cell)
-
+        
         addProduct(at: indexPath!)
         selectedProductsArray.append(productsArray[(indexPath?.row)!]) // Append products for cart
         priceForSelectedProductsArray.append(productsArray[(indexPath?.row)!].price) // Append prices for selected products

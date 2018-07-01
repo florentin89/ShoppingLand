@@ -11,6 +11,7 @@ import Social
 
 class ProductDetailsViewController: UITableViewController {
     
+    // Interface Links
     @IBOutlet var detailsTableView: UITableView!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -18,8 +19,8 @@ class ProductDetailsViewController: UITableViewController {
     @IBOutlet weak var productDescriptionLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
     
+    // Properties
     var selectedProduct: Product!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +33,7 @@ class ProductDetailsViewController: UITableViewController {
             self.productNameLabel.text = Constants.productNameLabel + self.selectedProduct.name!
             self.productCategoryLabel.text = Constants.productCategoryLabel + self.selectedProduct.category!
             self.productDescriptionLabel.text = Constants.productDescriptionLabel + self.selectedProduct.prodDescription!
-            self.productPriceLabel.text = Constants.productPriceLabel + String(format: "%.2f", self.selectedProduct.price)
-            
+            self.productPriceLabel.text = Constants.productPriceLabel + String(format: Constants.floatTwoDecimals, self.selectedProduct.price)
         }
     }
     
