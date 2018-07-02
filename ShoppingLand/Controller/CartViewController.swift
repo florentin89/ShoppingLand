@@ -125,7 +125,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
                 
             cell.cartProductQuantityLabel.text = Constants.quantityLabel + String(productQuantity)
             cell.cartProductNameLabel.text = self.productsInCartArray[indexPath.row].name
-            cell.cartProductPriceLabel.text = String(self.productsInCartArray[indexPath.row].price) + Constants.currencyPound
+                cell.cartProductPriceLabel.text = String(format: Constants.floatTwoDecimals, self.productsInCartArray[indexPath.row].price) + Constants.currencyPound
             cell.cartProductImageView.image = UIImage(named: Constants.defaultPhotoProduct)
             }
 
@@ -143,7 +143,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
             let cell = cartTableView.dequeueReusableCell(withIdentifier: Constants.identifierCartTotalPriceCell, for: indexPath) as! CartTableViewCell
             
             if let finalPrice = totalSum, finalPrice > 0 {
-                cell.cartTotalPriceLabel.text = String(finalPrice) + Constants.currencyPound
+                cell.cartTotalPriceLabel.text = String(format: Constants.floatTwoDecimals, finalPrice) + Constants.currencyPound
             }
             else{
                 cell.cartTotalPriceLabel.text = String(0.00) + Constants.currencyPound

@@ -186,9 +186,7 @@ class ProductsViewController: UIViewController, CellDelegate {
     func addProductToCartButton(_ sender: UIButton) {
         
         let buttonPosition : CGPoint = sender.convert(sender.bounds.origin, to: self.productsTableView)
-        
         let indexPath = self.productsTableView.indexPathForRow(at: buttonPosition)!
-        
         addProduct(at: indexPath)
     }
     
@@ -269,7 +267,7 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.productTitleLabel.text = productsArray[indexPath.row].name!
         cell.productDescriptionLabel.text = productsArray[indexPath.row].prodDescription!
-        cell.productPriceLabel.text = String(format: "%.2f", productsArray[indexPath.row].price) + Constants.currencyPound
+        cell.productPriceLabel.text = String(format: Constants.floatTwoDecimals, productsArray[indexPath.row].price) + Constants.currencyPound
         cell.productImageView.image = UIImage(named: Constants.defaultPhotoProduct)
         
         cell.addToCartBtn.layer.cornerRadius = 8
@@ -282,7 +280,6 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource{
             let resourcePhoto = ImageResource(downloadURL: URL(string: productPhotoURL)!, cacheKey: productPhotoURL)
             
             cell.productImageView.kf.setImage(with: resourcePhoto)
-            
         }
         return cell
     }

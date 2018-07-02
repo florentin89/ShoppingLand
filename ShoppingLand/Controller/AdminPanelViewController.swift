@@ -31,7 +31,6 @@ class AdminPanelViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //loadUserPhoto()
         updateInterface()
     }
     
@@ -39,21 +38,23 @@ class AdminPanelViewController: UITableViewController {
         super.viewWillAppear(animated)
         
         resetAllFields()
-        loadUserPhoto()
-        
+        userPhotoImageView.contentMode = .scaleToFill
     }
     
     // Function to update the properties of AdminVC
     func updateInterface(){
-        initializeTextFields()
+        loadUserPhoto()
+        initializeFields()
         customizeLayout()
         dismissKeyboard()
     }
     
     // Function to initalize the textfields
-    func initializeTextFields(){
+    func initializeFields(){
         
         title = Constants.adminPanelTitle
+        userPhotoImageView.backgroundColor = .lightGray
+        adminUsernameLabel.text = Constants.currentUser + currentUser
         productNameTextfield.delegate = self
         productCategoryTextField.delegate = self
         productDescriptionTextView.delegate = self
@@ -81,10 +82,6 @@ class AdminPanelViewController: UITableViewController {
         
         // Remove last cell from TableView
         adminTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: adminTableView.frame.size.width, height: 1))
-        
-        userPhotoImageView.backgroundColor = .lightGray
-        userPhotoImageView.contentMode = .scaleToFill
-        adminUsernameLabel.text = Constants.currentUser + currentUser
     }
     
     // Close the keyboard when you press outside of textfields

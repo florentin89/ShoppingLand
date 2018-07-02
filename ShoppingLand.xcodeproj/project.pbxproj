@@ -16,6 +16,7 @@
 		B522974720DBF8FB006A56DA /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522974620DBF8FB006A56DA /* CartViewController.swift */; };
 		B522974920DBF90B006A56DA /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522974820DBF90B006A56DA /* ProductDetailsViewController.swift */; };
 		B522974B20DC1510006A56DA /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522974A20DC1510006A56DA /* ProductTableViewCell.swift */; };
+		B52B263820EA83AA009CC179 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B263720EA83AA009CC179 /* CustomTabBarController.swift */; };
 		B536AB5920E3E6C200469324 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B536AB5820E3E6C200469324 /* Settings.bundle */; };
 		B536AB5B20E3EC9E00469324 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536AB5A20E3EC9E00469324 /* SettingsBundleHelper.swift */; };
 		B5B64BF920E63DCA0023443F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B64BF820E63DCA0023443F /* Constants.swift */; };
@@ -39,6 +40,7 @@
 		B522974620DBF8FB006A56DA /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		B522974820DBF90B006A56DA /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		B522974A20DC1510006A56DA /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		B52B263720EA83AA009CC179 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		B536AB5820E3E6C200469324 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B536AB5A20E3EC9E00469324 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		B5B64BF820E63DCA0023443F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				B5E7793720DD55CE0027C8F3 /* CartTableViewCell.swift */,
 				B522974A20DC1510006A56DA /* ProductTableViewCell.swift */,
+				B52B263720EA83AA009CC179 /* CustomTabBarController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				B5E7793420DD31790027C8F3 /* AdminPanelViewController.swift in Sources */,
 				B536AB5B20E3EC9E00469324 /* SettingsBundleHelper.swift in Sources */,
 				B5FC7CE820E158E900530F21 /* GoogleSearchModel.swift in Sources */,
+				B52B263820EA83AA009CC179 /* CustomTabBarController.swift in Sources */,
 				B5E7793820DD55CE0027C8F3 /* CartTableViewCell.swift in Sources */,
 				B5B64BF920E63DCA0023443F /* Constants.swift in Sources */,
 			);
