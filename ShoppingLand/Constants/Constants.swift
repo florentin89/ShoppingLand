@@ -59,4 +59,7 @@ enum Constants {
     static let resetAppKey = "RESET_APP_KEY"
     static let buildVersionKey = "BuildVersionKey"
     static let appVersionKey = "AppVersionKey"
+    static let productEntity = "Product"
+    static let errorDeletingProduct = "Error While Deleting Product: "
+    static let errorFetchingData = "Error While Fetching Data From DB: "
 }

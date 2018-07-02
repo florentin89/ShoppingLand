@@ -35,8 +35,8 @@ class CartViewController: UIViewController {
     // Append the selectedProducts into productsInCartArray using the TabBarController
     func fetchSelectedProducts() {
         
-        productsInCartArray = ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).selectedProductsArray
-        productPricesArray = ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).priceForSelectedProductsArray
+        productsInCartArray = ((self.tabBarController?.viewControllers![0] as! UINavigationController).viewControllers[0] as! ProductsViewController).selectedProductsArray
+        productPricesArray = ((self.tabBarController?.viewControllers![0] as! UINavigationController).viewControllers[0] as! ProductsViewController).priceForSelectedProductsArray
         totalSum = productPricesArray.reduce(0, +)
     }
     
@@ -165,5 +165,23 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
         default:
             return 0
         }
+    }
+    
+    // Function to delete a product from the cart
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            // TO DO: update the price Instantly when I delete a product
+            ((self.tabBarController?.viewControllers![0] as! UINavigationController).viewControllers[0] as! ProductsViewController).selectedProductsArray.remove(at: indexPath.row)
+            ((self.tabBarController?.viewControllers![0] as! UINavigationController).viewControllers[0] as! ProductsViewController).priceForSelectedProductsArray.remove(at: indexPath.row)
+            
+            totalSum = productPricesArray.reduce(0, +)
+            
+            productsInCartArray.remove(at: indexPath.row)
+            cartTableView.deleteRows(at: [indexPath], with: .fade)
+            cartTableView.reloadData()
+            
+        }
+        
     }
 }

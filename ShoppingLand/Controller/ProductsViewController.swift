@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import Kingfisher
+import CoreData
 
 class ProductsViewController: UIViewController, CellDelegate {
     
@@ -286,6 +287,34 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: Constants.segueForDetailsPage, sender: indexPath)
+    }
+    
+    // Function to delete a Product from the table view and also from CoreData
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let productEntity = Constants.productEntity
+        let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let product = productsArray[indexPath.row]
+        
+        if editingStyle == .delete {
+            managedContext.delete(product)
+            
+            do {
+                try managedContext.save()
+            } catch let error as NSError {
+                print(Constants.errorDeletingProduct + "\(error.userInfo)")
+            }
+        }
+        
+        // fetch new data from DB and reload products table view
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: productEntity)
+        
+        do {
+            productsArray = try managedContext.fetch(fetchRequest) as! [Product]
+        } catch let error as NSError {
+            print(Constants.errorFetchingData + "\(error.userInfo)")
+        }
+        productsTableView.reloadData()
     }
 }
 

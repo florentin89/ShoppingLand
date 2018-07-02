@@ -357,7 +357,7 @@
                         <viewLayoutGuide key="safeArea" id="VGK-wY-lAt"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cart Shop" id="458-LA-9f8">
-                        <barButtonItem key="rightBarButtonItem" title="Clear All" id="2ov-79-I5k">
+                        <barButtonItem key="rightBarButtonItem" title="Clear all" style="done" id="2ov-79-I5k">
                             <connections>
                                 <action selector="clearAllProducts:" destination="tqn-nE-pm7" id="99E-pE-uq0"/>
                             </connections>
