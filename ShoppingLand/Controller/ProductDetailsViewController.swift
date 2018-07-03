@@ -12,7 +12,7 @@ import KRProgressHUD
 import EventKit
 import SCLAlertView
 
-class ProductDetailsViewController: EFViewController {
+class ProductDetailsViewController: UITableViewController {
     
     // Interface Links
     @IBOutlet var detailsTableView: UITableView!

@@ -13,7 +13,7 @@ import SCLAlertView
 
 var productsArray = [Product]()
 
-class AdminPanelViewController: EFViewController {
+class AdminPanelViewController: UITableViewController {
     
     // Interface Links
     @IBOutlet var adminTableView: UITableView!

@@ -12,8 +12,9 @@ import Kingfisher
 import CoreData
 import KRProgressHUD
 import SCLAlertView
+import EFInternetIndicator
 
-class ProductsViewController: EFViewController, CellDelegate {
+class ProductsViewController: UIViewController, CellDelegate, InternetStatusIndicable {
     
     // Interface Links
     @IBOutlet weak var productsTableView: UITableView!
@@ -28,6 +29,7 @@ class ProductsViewController: EFViewController, CellDelegate {
     var googlePhotosArray = [Item]()
     var selectedProductsArray = [Product]()
     var priceForSelectedProductsArray = [Float]()
+    var internetConnectionIndicator:InternetViewIndicator?
     
     // Life Cycle States
     override func viewDidAppear(_ animated: Bool) {
@@ -51,8 +53,7 @@ class ProductsViewController: EFViewController, CellDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(ProductsViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
         defaultsChanged()
         updateProducts()
-        
-
+       self.startMonitoringInternet(backgroundColor:UIColor.red, style: .statusLine, textColor:UIColor.white, message:"ShoppingLand require Internet Connection")
     }
     
     // Function to update the Products Table View

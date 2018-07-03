@@ -9,7 +9,7 @@
 import UIKit
 import KRProgressHUD
 
-class CartViewController: EFViewController {
+class CartViewController: UIViewController {
     
     // Interface Links
     @IBOutlet weak var cartTableView: UITableView!
