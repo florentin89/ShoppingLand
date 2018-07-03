@@ -11,6 +11,7 @@ import Foundation
 import Kingfisher
 import CoreData
 import KRProgressHUD
+import SCLAlertView
 
 class ProductsViewController: UIViewController, CellDelegate {
     
@@ -52,6 +53,32 @@ class ProductsViewController: UIViewController, CellDelegate {
         updateProducts()
     }
     
+    // Function to update the Products Table View
+    func updateProducts(){
+        
+        getUserPhoto()
+        updateNoOfProductsOnIcons()
+        accessToAdminPanel()
+        fetchPhotosForProductsFromGoogle()
+        
+        numberOfProductsInCartLabel.layer.cornerRadius = numberOfProductsInCartLabel.frame.size.height / 2
+        
+        do{
+            productsArray = try context.fetch(Product.fetchRequest())
+            
+            // Remove last cell from TableView
+            productsTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: productsTableView.frame.size.width, height: 1))
+            
+            productsTableView.rowHeight = 150
+            productsTableView.estimatedRowHeight = 150
+            
+            productsTableView.reloadData()
+        }
+        catch{
+            print(Constants.errorMessage)
+        }
+    }
+    
     // Download photos from Google for products avatar
     func fetchPhotosForProductsFromGoogle(){
         
@@ -87,7 +114,6 @@ class ProductsViewController: UIViewController, CellDelegate {
     // Get UserPhoto from AdminViewController using the Delegation Pattern
     func getUserPhoto(image: UIImage) {
         userAvatarImageView.image = image
-        print(image)
     }
     
     // Function used to load the selected User Photo
@@ -109,32 +135,6 @@ class ProductsViewController: UIViewController, CellDelegate {
             let detailsVC = segue.destination as! ProductDetailsViewController
        
             detailsVC.selectedProduct = productsArray[selectedIndexPath.row]     
-        }
-    }
-    
-    // Function to update the Products Table View
-    func updateProducts(){
-        
-        getUserPhoto()
-        updateNoOfProductsOnIcons()
-        accessToAdminPanel()
-        fetchPhotosForProductsFromGoogle()
-        
-        numberOfProductsInCartLabel.layer.cornerRadius = numberOfProductsInCartLabel.frame.size.height / 2
-        
-        do{
-            productsArray = try context.fetch(Product.fetchRequest())
-            
-            // Remove last cell from TableView
-            productsTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: productsTableView.frame.size.width, height: 1))
-            
-            productsTableView.rowHeight = 150
-            productsTableView.estimatedRowHeight = 150
-            
-            productsTableView.reloadData()
-        }
-        catch{
-            print(Constants.errorMessage)
         }
     }
     
@@ -169,16 +169,6 @@ class ProductsViewController: UIViewController, CellDelegate {
         
     }
     
-    // Show a custom Alert
-    func showAlertWith(title: String, message: String, style: UIAlertControllerStyle = .alert) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
-        let action = UIAlertAction(title: title, style: .default) { (action) in
-            self.dismiss(animated: true, completion: nil)
-        }
-        alertController.addAction(action)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
     // Func to register the Settings Bundle when the app start
     func registerSettingsBundle(){
         let appDefaults = [String:AnyObject]()
@@ -193,12 +183,10 @@ class ProductsViewController: UIViewController, CellDelegate {
             silverBackground.frame = self.productsTableView.frame
             self.productsTableView.backgroundView = silverBackground
             self.view.backgroundColor = UIColor.lightGray
-            
         }
         else {
             self.productsTableView.backgroundView = UIImageView()
             self.view.backgroundColor = UIColor.white
-            
         }
     }
     
@@ -221,7 +209,6 @@ class ProductsViewController: UIViewController, CellDelegate {
         imgViewTemp.image = cell.productImageView.image
         
         animationProduct(tempView: imgViewTemp)
-        
     }
     
     // Function to animate the product into the Cart
@@ -317,7 +304,6 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource{
         
         if editingStyle == .delete {
             managedContext.delete(product)
-            
             do {
                 try managedContext.save()
             } catch let error as NSError {
@@ -327,7 +313,6 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource{
         
         // fetch new data from DB and reload products table view
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: productEntity)
-        
         do {
             productsArray = try managedContext.fetch(fetchRequest) as! [Product]
         } catch let error as NSError {

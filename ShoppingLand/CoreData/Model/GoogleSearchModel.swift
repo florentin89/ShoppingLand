@@ -9,7 +9,7 @@
 import Foundation
 
 // Structure for Google JSON Response for Images Search
-struct GoogleSearchModel: Codable {
+struct GoogleSearchModel: Codable { // Codable is a new technology from iOS 11 (Swift 4)
     let kind: String
     let url: URLGoogle
     let queries: Queries

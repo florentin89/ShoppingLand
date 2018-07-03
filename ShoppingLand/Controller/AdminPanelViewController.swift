@@ -115,19 +115,19 @@ class AdminPanelViewController: UITableViewController {
     func insertProduct(){
         
         guard let productName = productNameTextfield.text, productName != "" else{
-            showAlertWith(title: Constants.nameRequired, message: Constants.messageNameRequired)
+            SCLAlertView().showError(Constants.nameRequired, subTitle: Constants.messageNameRequired)
             return
         }
         guard let productCategory = productCategoryTextField.text, productCategory != "" else{
-            showAlertWith(title: Constants.categoryRequired, message: Constants.messageCategoryRequired)
+            SCLAlertView().showError(Constants.categoryRequired, subTitle: Constants.messageCategoryRequired)
             return
         }
-        guard let productDescription = productDescriptionTextView.text, productDescription != ""
-            else{ showAlertWith(title: Constants.descriptionRequired, message: Constants.messageDescriptionRequired)
-                return
+        guard let productDescription = productDescriptionTextView.text, productDescription != ""else{
+            SCLAlertView().showError(Constants.descriptionRequired, subTitle: Constants.messageDescriptionRequired)
+            return
         }
         guard let productPrice = productPriceTextfield.text, productPrice != "" else{
-            showAlertWith(title: Constants.priceRequired, message: Constants.messagePriceRequired)
+            SCLAlertView().showError(Constants.priceRequired, subTitle: Constants.messagePriceRequired)
             return
         }
         
@@ -180,7 +180,7 @@ class AdminPanelViewController: UITableViewController {
         // Save the selected user photo
         UserDefaults.standard.set(imageData, forKey: Constants.nameOfSavedUserPhoto)
         loadUserPhoto()
-        showAlertWith(title: Constants.done, message: Constants.messagePhotoSaved, style: .alert)
+        SCLAlertView().showSuccess(Constants.done, subTitle: Constants.messagePhotoSaved)
     }
     
     // Function used to load the selected User Photo
@@ -194,17 +194,6 @@ class AdminPanelViewController: UITableViewController {
         userPhotoImageView.image = UIImage(data: data as Data)
         userPhotoImageView.contentMode = .scaleToFill
     }
-    
-    // Show a custom Alert
-    func showAlertWith(title: String, message: String, style: UIAlertControllerStyle = .alert) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
-        let action = UIAlertAction(title: title, style: .default) { (action) in
-            self.dismiss(animated: true, completion: nil)
-        }
-        alertController.addAction(action)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
 }
 
 extension AdminPanelViewController: UITextFieldDelegate, UITextViewDelegate{
@@ -227,7 +216,6 @@ extension AdminPanelViewController: UITextFieldDelegate, UITextViewDelegate{
             let allowedCharacters = Constants.allowedCharacters
             return allowedCharacters.contains(string) || range.length == 1
         }
-
         return true
     }
     
@@ -242,10 +230,8 @@ extension AdminPanelViewController: UITextFieldDelegate, UITextViewDelegate{
                 return true
             }
         }
-        
         return true
     }
-
 }
 
 // Extension for UserPhoto ImageView to dismiss the Controller when you press Cancel or to load the selected image from library
@@ -261,8 +247,6 @@ extension AdminPanelViewController: UIImagePickerControllerDelegate, UINavigatio
             userPhotoImageView.contentMode = .scaleAspectFit
             userPhotoImageView.image = selectedImage
         }
-        
         dismiss(animated: true, completion: nil)
     }
 }
-

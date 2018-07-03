@@ -95,17 +95,6 @@ class CartViewController: UIViewController {
         UIApplication.shared.applicationIconBadgeNumber = 0
         cartTableView.reloadData()
     }
-    
-    // Show a custom Alert
-    func showAlertWith(title: String, message: String, style: UIAlertControllerStyle = .alert) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
-        let action = UIAlertAction(title: title, style: .default) { (action) in
-            self.dismiss(animated: true, completion: nil)
-        }
-        alertController.addAction(action)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
 }
 
 // Protocol functions for Cart TableView

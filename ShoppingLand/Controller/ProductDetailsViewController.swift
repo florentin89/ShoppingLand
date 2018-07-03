@@ -23,6 +23,7 @@ class ProductDetailsViewController: UITableViewController {
     // Properties
     var selectedProduct: Product!
     var getProductImage = UIImage()
+    
     // Life Cycles States
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
