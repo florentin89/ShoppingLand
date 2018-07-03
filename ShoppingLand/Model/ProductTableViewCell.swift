@@ -16,7 +16,6 @@ protocol CellDelegate: class {
 
 class ProductTableViewCell: UITableViewCell {
 
-  
     // Components of ProductTableView Cell
     
     @IBOutlet weak var productImageView: UIImageView!

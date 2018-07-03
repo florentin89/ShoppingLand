@@ -217,7 +217,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="CnF-zC-aLI"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -254,7 +254,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="WAI-Hq-TIH"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -263,7 +263,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="p6E-kC-oVD"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

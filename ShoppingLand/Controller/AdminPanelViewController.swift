@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import KRProgressHUD
+import SCLAlertView
 
 var productsArray = [Product]()
 
@@ -28,10 +30,10 @@ class AdminPanelViewController: UITableViewController {
     var currentUser = UIDevice.current.name
     
     // Life Cycle States
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        updateInterface()
+        KRProgressHUD.show(withMessage: Constants.loadingMessage)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +41,14 @@ class AdminPanelViewController: UITableViewController {
         
         resetAllFields()
         userPhotoImageView.contentMode = .scaleToFill
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) { KRProgressHUD.dismiss() }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        updateInterface()
     }
     
     // Function to update the properties of AdminVC
@@ -131,7 +141,7 @@ class AdminPanelViewController: UITableViewController {
         
         appDelegate.saveContext() // End inserting and save the content in Core Data
         resetAllFields()
-        showAlertWith(title: Constants.done, message: Constants.messageProductAdded)
+        SCLAlertView().showSuccess(Constants.done, subTitle: Constants.messageProductAdded)
     }
     
     // Reset All Fields
@@ -214,7 +224,7 @@ extension AdminPanelViewController: UITextFieldDelegate, UITextViewDelegate{
         }
         //allow the user to enter only digits and punctuation for Price textfield
         if (textField == productPriceTextfield) {
-            let allowedCharacters = "0123456789."
+            let allowedCharacters = Constants.allowedCharacters
             return allowedCharacters.contains(string) || range.length == 1
         }
 

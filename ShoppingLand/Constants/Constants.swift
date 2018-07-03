@@ -62,4 +62,7 @@ enum Constants {
     static let productEntity = "Product"
     static let errorDeletingProduct = "Error While Deleting Product: "
     static let errorFetchingData = "Error While Fetching Data From DB: "
+    static let loadingMessage = "ShoppingLoad..."
+    static let payPalURL = "https://www.paypal.com/uk/home"
+    static let allowedCharacters = "0123456789."
 }

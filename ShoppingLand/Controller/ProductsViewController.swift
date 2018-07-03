@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import Kingfisher
 import CoreData
+import KRProgressHUD
 
 class ProductsViewController: UIViewController, CellDelegate {
     
@@ -28,6 +29,19 @@ class ProductsViewController: UIViewController, CellDelegate {
     var priceForSelectedProductsArray = [Float]()
     
     // Life Cycle States
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        KRProgressHUD.show(withMessage: Constants.loadingMessage)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+ 
+        updateProducts()
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) { KRProgressHUD.dismiss() }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,12 +49,6 @@ class ProductsViewController: UIViewController, CellDelegate {
         // Use Notification Pattern to detect when the background was changed
         NotificationCenter.default.addObserver(self, selector: #selector(ProductsViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
         defaultsChanged()
-        updateProducts()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         updateProducts()
     }
     
@@ -99,7 +107,8 @@ class ProductsViewController: UIViewController, CellDelegate {
         
         if let selectedIndexPath = productsTableView.indexPathForSelectedRow{
             let detailsVC = segue.destination as! ProductDetailsViewController
-            detailsVC.selectedProduct = productsArray[selectedIndexPath.row]
+       
+            detailsVC.selectedProduct = productsArray[selectedIndexPath.row]     
         }
     }
     
@@ -107,6 +116,7 @@ class ProductsViewController: UIViewController, CellDelegate {
     func updateProducts(){
         
         getUserPhoto()
+        updateNoOfProductsOnIcons()
         accessToAdminPanel()
         fetchPhotosForProductsFromGoogle()
         
@@ -126,6 +136,15 @@ class ProductsViewController: UIViewController, CellDelegate {
         catch{
             print(Constants.errorMessage)
         }
+    }
+    
+    // Func to update the number of products on the carts
+    func updateNoOfProductsOnIcons(){
+        
+        counterItem = ((self.tabBarController?.viewControllers![1] as! UINavigationController).topViewController as! CartViewController).productsInCartArray.count
+        
+        UIApplication.shared.applicationIconBadgeNumber = counterItem
+        numberOfProductsInCartLabel.text = String(counterItem)
     }
     
     // Navigate to Cart when you click the basket icon

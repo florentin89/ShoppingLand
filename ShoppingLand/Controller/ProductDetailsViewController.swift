@@ -8,6 +8,7 @@
 
 import UIKit
 import Social
+import KRProgressHUD
 
 class ProductDetailsViewController: UITableViewController {
     
@@ -21,6 +22,19 @@ class ProductDetailsViewController: UITableViewController {
     
     // Properties
     var selectedProduct: Product!
+    var getProductImage = UIImage()
+    // Life Cycles States
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        KRProgressHUD.show(withMessage: Constants.loadingMessage)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) { KRProgressHUD.dismiss() }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

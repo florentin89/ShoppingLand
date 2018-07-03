@@ -9,5 +9,7 @@ target 'ShoppingLand' do
 
   # Pods for ShoppingLand
 pod 'Kingfisher', '~> 4.0'
+pod "KRProgressHUD"
+pod 'SCLAlertView'
 
 end

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KRProgressHUD
 
 class CartViewController: UIViewController {
     
@@ -19,18 +20,24 @@ class CartViewController: UIViewController {
     var totalSum: Float?
     
     // Life Cycle States
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        KRProgressHUD.show(withMessage: Constants.loadingMessage)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateCartTableView()
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) { KRProgressHUD.dismiss() }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateCartTableView()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
- 
-        updateCartTableView()
-    }
-    
     
     // Append the selectedProducts into productsInCartArray using the TabBarController
     func fetchSelectedProducts() {
@@ -47,7 +54,7 @@ class CartViewController: UIViewController {
         cartTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: cartTableView.frame.size.width, height: 1)) // Remove last cell from TableView
         cartTableView.reloadData()
     }
-   
+    
     // Function to redirect you on Amazon if you want to buy the specific product
     @IBAction func cartBuyProductButton(_ sender: Any) {
         
@@ -68,7 +75,7 @@ class CartViewController: UIViewController {
     // In the future here can be a form with all user details to complete the payment.
     @IBAction func cartCheckoutButton(_ sender: Any) {
         
-        showAlertWith(title: Constants.inProgress, message: Constants.messageInProgress)
+        UIApplication.shared.open(URL(string: Constants.payPalURL)!, options: [:], completionHandler: nil)
     }
     
     // Clear all products from the cart
@@ -88,7 +95,6 @@ class CartViewController: UIViewController {
         UIApplication.shared.applicationIconBadgeNumber = 0
         cartTableView.reloadData()
     }
-    
     
     // Show a custom Alert
     func showAlertWith(title: String, message: String, style: UIAlertControllerStyle = .alert) {
@@ -123,12 +129,12 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
             
             DispatchQueue.main.async {
                 
-            cell.cartProductQuantityLabel.text = Constants.quantityLabel + String(productQuantity)
-            cell.cartProductNameLabel.text = self.productsInCartArray[indexPath.row].name
+                cell.cartProductQuantityLabel.text = Constants.quantityLabel + String(productQuantity)
+                cell.cartProductNameLabel.text = self.productsInCartArray[indexPath.row].name
                 cell.cartProductPriceLabel.text = String(format: Constants.floatTwoDecimals, self.productsInCartArray[indexPath.row].price) + Constants.currencyPound
-            cell.cartProductImageView.image = UIImage(named: Constants.defaultPhotoProduct)
+                cell.cartProductImageView.image = UIImage(named: Constants.defaultPhotoProduct)
             }
-
+            
             cell.buyFromAmazonBtn.layer.cornerRadius = 8
             cell.buyFromAmazonBtn.layer.borderWidth = 2
             cell.buyFromAmazonBtn.layer.borderColor = UIColor.white.cgColor
@@ -154,7 +160,6 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
         default:
             return UITableViewCell()
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -171,17 +176,17 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            // TO DO: update the price Instantly when I delete a product
             ((self.tabBarController?.viewControllers![0] as! UINavigationController).viewControllers[0] as! ProductsViewController).selectedProductsArray.remove(at: indexPath.row)
             ((self.tabBarController?.viewControllers![0] as! UINavigationController).viewControllers[0] as! ProductsViewController).priceForSelectedProductsArray.remove(at: indexPath.row)
             
-            totalSum = productPricesArray.reduce(0, +)
-            
             productsInCartArray.remove(at: indexPath.row)
+            productPricesArray.remove(at: indexPath.row)
             cartTableView.deleteRows(at: [indexPath], with: .fade)
+            totalSum = productPricesArray.reduce(0, +)
+            self.tabBarController?.tabBar.items?[1].badgeValue = String(productsInCartArray.count)
+            
             cartTableView.reloadData()
             
         }
-        
     }
 }
