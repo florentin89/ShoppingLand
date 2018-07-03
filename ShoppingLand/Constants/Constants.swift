@@ -33,6 +33,8 @@ enum Constants {
     static let priceRequired = "Price required"
     static let messagePriceRequired = "Product Price required !"
     static let done = "Done"
+    static let error = "Error"
+    static let success = "Success"
     static let messageProductAdded = "Product was added with success !"
     static let messagePhotoSaved = "Photo was saved."
     static let defaultGoogleImage = "flagUK"
@@ -65,4 +67,9 @@ enum Constants {
     static let loadingMessage = "ShoppingLoad..."
     static let payPalURL = "https://www.paypal.com/uk/home"
     static let allowedCharacters = "0123456789."
+    static let accessDeniedCalendar = "Access to use calendar was denied."
+    static let reminderTitleBuyProduct = "Reminder to buy a product"
+    static let reminderMessageBuyProduct = "Don't forget to buy your favorite product from ShoppingLand."
+    static let errorSavingEvent = "Error: Failed while saving event."
+    static let eventSavedSuccessfull = "The event was saved successfull. \nCheck you calendar for more details."
 }

@@ -11,5 +11,6 @@ target 'ShoppingLand' do
 pod 'Kingfisher', '~> 4.0'
 pod "KRProgressHUD"
 pod 'SCLAlertView'
+pod 'EFInternetIndicator'
 
 end

@@ -828,7 +828,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNB-qS-7p9">
-                                                    <rect key="frame" x="140" y="32" width="134" height="36"/>
+                                                    <rect key="frame" x="70" y="32" width="134" height="36"/>
                                                     <color key="backgroundColor" red="1" green="0.72372268159999997" blue="0.26680482039999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <state key="normal" title="Share product">
@@ -838,9 +838,22 @@
                                                         <action selector="shareProductButton:" destination="nvt-ri-6Hc" eventType="touchUpInside" id="dpI-xF-2lp"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="44a-Kw-Jfx">
+                                                    <rect key="frame" x="211.66666666666663" y="32.333333333333336" width="131" height="35.000000000000007"/>
+                                                    <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                    <state key="normal" title="Remind to buy">
+                                                        <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="createRemindToBuyEvent:" destination="nvt-ri-6Hc" eventType="touchUpInside" id="gK2-sr-nR3"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="cNB-qS-7p9" firstAttribute="centerX" secondItem="6x5-Y1-XYS" secondAttribute="centerX" id="1JT-72-zMI"/>
+                                                <constraint firstItem="cNB-qS-7p9" firstAttribute="centerX" secondItem="6x5-Y1-XYS" secondAttribute="centerX" constant="-70" id="1JT-72-zMI"/>
+                                                <constraint firstItem="44a-Kw-Jfx" firstAttribute="centerX" secondItem="6x5-Y1-XYS" secondAttribute="centerX" constant="70" id="2qB-ut-xxs"/>
+                                                <constraint firstItem="44a-Kw-Jfx" firstAttribute="centerY" secondItem="6x5-Y1-XYS" secondAttribute="centerY" id="56H-dc-WKI"/>
                                                 <constraint firstItem="cNB-qS-7p9" firstAttribute="centerY" secondItem="6x5-Y1-XYS" secondAttribute="centerY" id="a9G-To-MiK"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -855,16 +868,18 @@
                     </tableView>
                     <connections>
                         <outlet property="detailsTableView" destination="gBk-f7-uVh" id="b0w-qh-Sa1"/>
+                        <outlet property="preorderBtnOutlet" destination="44a-Kw-Jfx" id="HLz-aV-6P0"/>
                         <outlet property="productCategoryLabel" destination="7lR-c7-SMJ" id="K4h-jx-Xri"/>
                         <outlet property="productDescriptionLabel" destination="Ydc-tA-rC5" id="aPK-Ke-4Us"/>
                         <outlet property="productImageView" destination="Cfl-hj-vyz" id="vlH-JM-HKK"/>
                         <outlet property="productNameLabel" destination="huK-eC-hCF" id="AKj-QT-jT9"/>
                         <outlet property="productPriceLabel" destination="E8m-bA-PS5" id="368-59-6Wh"/>
+                        <outlet property="shareBtnOutlet" destination="cNB-qS-7p9" id="yGu-cj-WTU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cdS-zs-TPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="197" y="3813"/>
+            <point key="canvasLocation" x="195.6521739130435" y="3812.771739130435"/>
         </scene>
     </scenes>
     <resources>

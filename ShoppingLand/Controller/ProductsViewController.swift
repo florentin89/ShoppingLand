@@ -13,7 +13,7 @@ import CoreData
 import KRProgressHUD
 import SCLAlertView
 
-class ProductsViewController: UIViewController, CellDelegate {
+class ProductsViewController: EFViewController, CellDelegate {
     
     // Interface Links
     @IBOutlet weak var productsTableView: UITableView!
@@ -51,6 +51,8 @@ class ProductsViewController: UIViewController, CellDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(ProductsViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
         defaultsChanged()
         updateProducts()
+        
+
     }
     
     // Function to update the Products Table View

@@ -1,28 +1,40 @@
 PODS:
+  - EFInternetIndicator (0.4.0):
+    - EFInternetIndicator/Interface (= 0.4.0)
+  - EFInternetIndicator/Interface (0.4.0):
+    - SwiftMessages
   - Kingfisher (4.8.0)
   - KRActivityIndicatorView (2.1.2)
   - KRProgressHUD (3.2.2):
     - KRActivityIndicatorView (= 2.1.2)
   - SCLAlertView (0.8)
+  - SwiftMessages (4.1.4):
+    - SwiftMessages/App (= 4.1.4)
+  - SwiftMessages/App (4.1.4)
 
 DEPENDENCIES:
+  - EFInternetIndicator
   - Kingfisher (~> 4.0)
   - KRProgressHUD
   - SCLAlertView
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - EFInternetIndicator
     - Kingfisher
     - KRActivityIndicatorView
     - KRProgressHUD
     - SCLAlertView
+    - SwiftMessages
 
 SPEC CHECKSUMS:
+  EFInternetIndicator: a6077679e15191889a783a06624390b73e8109dc
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
   KRActivityIndicatorView: 27e7a7e3da7fbc8e5405fbc4088b51cc2095a410
   KRProgressHUD: 8872da74b1c462e15c82a8fff250a2d34ee82ea2
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SwiftMessages: 2c33fdee8b8f38dfc7e1036684456b505891da8c
 
-PODFILE CHECKSUM: a95271f185e4d8cdf642566dc3ec0206674b3e9d
+PODFILE CHECKSUM: 16ac7fb51ccd637f462b8956ad0387bff20ec6a6
 
 COCOAPODS: 1.5.3

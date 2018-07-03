@@ -18,6 +18,7 @@
 		B522974B20DC1510006A56DA /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522974A20DC1510006A56DA /* ProductTableViewCell.swift */; };
 		B536AB5920E3E6C200469324 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B536AB5820E3E6C200469324 /* Settings.bundle */; };
 		B536AB5B20E3EC9E00469324 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536AB5A20E3EC9E00469324 /* SettingsBundleHelper.swift */; };
+		B5AD089F20EC1B6B0081F1C9 /* EFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AD089E20EC1B6B0081F1C9 /* EFViewController.swift */; };
 		B5B64BF920E63DCA0023443F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B64BF820E63DCA0023443F /* Constants.swift */; };
 		B5DF6DDE20DFF67200A06435 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DF6DDD20DFF67200A06435 /* CoreDataStack.swift */; };
 		B5DF6DE520DFFDC300A06435 /* ShoppingLand.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5DF6DE320DFFDC300A06435 /* ShoppingLand.xcdatamodeld */; };
@@ -41,6 +42,7 @@
 		B522974A20DC1510006A56DA /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		B536AB5820E3E6C200469324 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B536AB5A20E3EC9E00469324 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		B5AD089E20EC1B6B0081F1C9 /* EFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFViewController.swift; sourceTree = "<group>"; };
 		B5B64BF820E63DCA0023443F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B5DF6DDD20DFF67200A06435 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B5DF6DE420DFFDC300A06435 /* ShoppingLand.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingLand.xcdatamodel; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				B5E7793720DD55CE0027C8F3 /* CartTableViewCell.swift */,
 				B522974A20DC1510006A56DA /* ProductTableViewCell.swift */,
+				B5AD089E20EC1B6B0081F1C9 /* EFViewController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,17 +261,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ShoppingLand/Pods-ShoppingLand-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/EFInternetIndicator/EFInternetIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMessages/SwiftMessages.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFInternetIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMessages.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -305,6 +312,7 @@
 				B5DF6DDE20DFF67200A06435 /* CoreDataStack.swift in Sources */,
 				B522972D20DBF47F006A56DA /* AppDelegate.swift in Sources */,
 				B522974920DBF90B006A56DA /* ProductDetailsViewController.swift in Sources */,
+				B5AD089F20EC1B6B0081F1C9 /* EFViewController.swift in Sources */,
 				B5DF6DE520DFFDC300A06435 /* ShoppingLand.xcdatamodeld in Sources */,
 				B522974B20DC1510006A56DA /* ProductTableViewCell.swift in Sources */,
 				B5E7793420DD31790027C8F3 /* AdminPanelViewController.swift in Sources */,

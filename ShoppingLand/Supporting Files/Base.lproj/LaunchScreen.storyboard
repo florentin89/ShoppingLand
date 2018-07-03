@@ -30,6 +30,12 @@
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- The App Experts -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORm-7u-Zog">
+                                <rect key="frame" x="110" y="372.5" width="155" height="22"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -39,7 +45,9 @@
                             <constraint firstItem="2Ka-AF-EHs" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="ODq-Ww-GTN"/>
                             <constraint firstItem="2Ka-AF-EHs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="271" id="Wum-Nn-G4Q"/>
                             <constraint firstItem="2Ka-AF-EHs" firstAttribute="leading" secondItem="ZiK-SY-WKp" secondAttribute="leading" id="Xg4-uI-f3w"/>
+                            <constraint firstItem="ORm-7u-Zog" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="50" id="hI0-1s-Jfr"/>
                             <constraint firstItem="2Ka-AF-EHs" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="rq8-Db-PVA"/>
+                            <constraint firstItem="ORm-7u-Zog" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xIn-N6-RM7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
