@@ -8,8 +8,10 @@
 
 import UIKit
 import KRProgressHUD
+import SCLAlertView
+import Kingfisher
 
-class CartViewController: UIViewController {
+class CartViewController: UIViewController, ButtonInCellDelegate {
     
     // Interface Links
     @IBOutlet weak var cartTableView: UITableView!
@@ -17,6 +19,7 @@ class CartViewController: UIViewController {
     // Properties
     var productsInCartArray = [Product]()
     var productPricesArray = [Float]()
+    var getProductsPhotosArray = [Item]()
     var totalSum: Float?
     
     // Life Cycle States
@@ -41,9 +44,10 @@ class CartViewController: UIViewController {
     
     // Append the selectedProducts into productsInCartArray using the TabBarController
     func fetchSelectedProducts() {
-        
-        productsInCartArray = ((self.tabBarController?.viewControllers![0] as! UINavigationController).viewControllers[0] as! ProductsViewController).selectedProductsArray
-        productPricesArray = ((self.tabBarController?.viewControllers![0] as! UINavigationController).viewControllers[0] as! ProductsViewController).priceForSelectedProductsArray
+        let firstTabVC = ((self.tabBarController?.viewControllers![0] as! UINavigationController).viewControllers[0] as! ProductsViewController)
+        productsInCartArray = firstTabVC.selectedProductsArray
+        productPricesArray = firstTabVC.priceForSelectedProductsArray
+        getProductsPhotosArray = firstTabVC.googlePhotosArray
         totalSum = productPricesArray.reduce(0, +)
     }
     
@@ -56,25 +60,24 @@ class CartViewController: UIViewController {
     }
     
     // Function to redirect you on Amazon if you want to buy the specific product
-    @IBAction func cartBuyProductButton(_ sender: Any) {
+    func didTouchBuyButton(_ button: UIButton, inCell: UITableViewCell) {
         
-        if let selectedIndexPath = cartTableView.indexPathForSelectedRow{
-            let productNameWithSpaces = productsArray[selectedIndexPath.row].name!
+        if let indexPath = cartTableView.indexPath(for: inCell){
+            let productNameWithSpaces = productsInCartArray[indexPath.row].name!
             var productNameWithoutSpaces = productNameWithSpaces.replacingOccurrences(of: " ", with: "+", options: .literal, range: nil)
             guard let amazonLink = URL(string: Constants.amazonURL + productNameWithoutSpaces) else {
                 productNameWithoutSpaces = Constants.amazonDefaultSearch
-                return}
-            
+                return
+            }
             UIApplication.shared.open(amazonLink, options: [:], completionHandler: nil)
         }
         else{
-            print(Constants.errorMessage)
+            SCLAlertView().showError(Constants.error, subTitle: Constants.urlNotFound)
         }
     }
     
     // In the future here can be a form with all user details to complete the payment.
     @IBAction func cartCheckoutButton(_ sender: Any) {
-        
         UIApplication.shared.open(URL(string: Constants.payPalURL)!, options: [:], completionHandler: nil)
     }
     
@@ -88,10 +91,11 @@ class CartViewController: UIViewController {
         self.tabBarController?.tabBar.items?[1].badgeValue = String(0)
         
         // Remove selected products from ProductsViewController
-        ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).selectedProductsArray = [Product]()
-        ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).priceForSelectedProductsArray = [Float]()
-        ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).counterItem = 0
-        ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController).numberOfProductsInCartLabel.text = String(0)
+        let firstTabTVC = ((self.tabBarController?.viewControllers![0] as! UINavigationController).topViewController as! ProductsViewController)
+        firstTabTVC.selectedProductsArray = [Product]()
+        firstTabTVC.priceForSelectedProductsArray = [Float]()
+        firstTabTVC.counterItem = 0
+        firstTabTVC.numberOfProductsInCartLabel.text = String(0)
         UIApplication.shared.applicationIconBadgeNumber = 0
         cartTableView.reloadData()
     }
@@ -118,15 +122,20 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
             
             DispatchQueue.main.async {
                 
+                let productPhotoURL = self.getProductsPhotosArray.first?.link ?? Constants.defaultProductPhotoURL
+                let resourcePhoto = ImageResource(downloadURL: URL(string: productPhotoURL)!, cacheKey: productPhotoURL)
+                
+                cell.cartProductImageView.kf.setImage(with: resourcePhoto)
                 cell.cartProductQuantityLabel.text = Constants.quantityLabel + String(productQuantity)
                 cell.cartProductNameLabel.text = self.productsInCartArray[indexPath.row].name
                 cell.cartProductPriceLabel.text = String(format: Constants.floatTwoDecimals, self.productsInCartArray[indexPath.row].price) + Constants.currencyPound
-                cell.cartProductImageView.image = UIImage(named: Constants.defaultPhotoProduct)
             }
             
+            // Customize Amazon Button
             cell.buyFromAmazonBtn.layer.cornerRadius = 8
             cell.buyFromAmazonBtn.layer.borderWidth = 2
             cell.buyFromAmazonBtn.layer.borderColor = UIColor.white.cgColor
+            cell.delegate = self
             
             return cell
             
@@ -143,6 +152,11 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
             else{
                 cell.cartTotalPriceLabel.text = String(0.00) + Constants.currencyPound
             }
+            
+            // Customize Checkout Button
+            cell.checkoutBtnOutlet.layer.cornerRadius = 8
+            cell.checkoutBtnOutlet.layer.borderWidth = 2
+            cell.checkoutBtnOutlet.layer.borderColor = UIColor.white.cgColor
             
             return cell
             
@@ -164,9 +178,9 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
     // Function to delete a product from the cart
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            
-            ((self.tabBarController?.viewControllers![0] as! UINavigationController).viewControllers[0] as! ProductsViewController).selectedProductsArray.remove(at: indexPath.row)
-            ((self.tabBarController?.viewControllers![0] as! UINavigationController).viewControllers[0] as! ProductsViewController).priceForSelectedProductsArray.remove(at: indexPath.row)
+            let firstTabVC = ((self.tabBarController?.viewControllers![0] as! UINavigationController).viewControllers[0] as! ProductsViewController)
+            firstTabVC.selectedProductsArray.remove(at: indexPath.row)
+            firstTabVC.priceForSelectedProductsArray.remove(at: indexPath.row)
             
             productsInCartArray.remove(at: indexPath.row)
             productPricesArray.remove(at: indexPath.row)
@@ -175,7 +189,6 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource{
             self.tabBarController?.tabBar.items?[1].badgeValue = String(productsInCartArray.count)
             
             cartTableView.reloadData()
-            
         }
     }
 }

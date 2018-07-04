@@ -11,6 +11,7 @@ import Social
 import KRProgressHUD
 import EventKit
 import SCLAlertView
+import Kingfisher
 
 class ProductDetailsViewController: UITableViewController {
     
@@ -26,7 +27,7 @@ class ProductDetailsViewController: UITableViewController {
     
     // Properties
     var selectedProduct: Product!
-    var getProductImage = UIImage()
+    var getGooglePhotosArray = [Item]()
     
     // Life Cycles States
     override func viewDidAppear(_ animated: Bool) {
@@ -53,7 +54,10 @@ class ProductDetailsViewController: UITableViewController {
         
         DispatchQueue.main.async {
             
-            self.productImageView.image = UIImage(named: Constants.defaultPhotoProduct)
+            let productPhotoURL = self.getGooglePhotosArray.first?.link ?? Constants.defaultProductPhotoURL
+            let resourcePhoto = ImageResource(downloadURL: URL(string: productPhotoURL)!, cacheKey: productPhotoURL)
+            
+            self.productImageView.kf.setImage(with: resourcePhoto)
             self.productNameLabel.text = Constants.productNameLabel + self.selectedProduct.name!
             self.productCategoryLabel.text = Constants.productCategoryLabel + self.selectedProduct.category!
             self.productDescriptionLabel.text = Constants.productDescriptionLabel + self.selectedProduct.prodDescription!
@@ -109,15 +113,15 @@ class ProductDetailsViewController: UITableViewController {
                     try eventStore.save(event, span: .thisEvent)
                 }catch _ as NSError{
                     DispatchQueue.main.async {
-                    SCLAlertView().showError(Constants.error, subTitle: Constants.errorSavingEvent)
+                        SCLAlertView().showError(Constants.error, subTitle: Constants.errorSavingEvent)
                     }
                 }
                 DispatchQueue.main.async {
-                SCLAlertView().showSuccess(Constants.success, subTitle: Constants.eventSavedSuccessfull)
+                    SCLAlertView().showSuccess(Constants.success, subTitle: Constants.eventSavedSuccessfull)
                 }
             } else{
                 DispatchQueue.main.async {
-                SCLAlertView().showError(Constants.error, subTitle: Constants.accessDeniedCalendar)
+                    SCLAlertView().showError(Constants.error, subTitle: Constants.accessDeniedCalendar)
                 }
             }
         }

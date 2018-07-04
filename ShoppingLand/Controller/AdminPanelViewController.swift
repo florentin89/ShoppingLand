@@ -122,12 +122,12 @@ class AdminPanelViewController: UITableViewController {
             SCLAlertView().showError(Constants.categoryRequired, subTitle: Constants.messageCategoryRequired)
             return
         }
-        guard let productDescription = productDescriptionTextView.text, productDescription != ""else{
-            SCLAlertView().showError(Constants.descriptionRequired, subTitle: Constants.messageDescriptionRequired)
-            return
-        }
         guard let productPrice = productPriceTextfield.text, productPrice != "" else{
             SCLAlertView().showError(Constants.priceRequired, subTitle: Constants.messagePriceRequired)
+            return
+        }
+        guard let productDescription = productDescriptionTextView.text, productDescription != ""else{
+            SCLAlertView().showError(Constants.descriptionRequired, subTitle: Constants.messageDescriptionRequired)
             return
         }
         
@@ -136,8 +136,8 @@ class AdminPanelViewController: UITableViewController {
         product.id = productUUID
         product.name = productName
         product.category = productCategory
-        product.prodDescription = productDescription
         product.price = Float(productPrice)!
+        product.prodDescription = productDescription
         
         appDelegate.saveContext() // End inserting and save the content in Core Data
         resetAllFields()
@@ -203,7 +203,7 @@ extension AdminPanelViewController: UITextFieldDelegate, UITextViewDelegate{
     {
         // Don't allow user to enter spaces in textfields at beginning
         if textField == productNameTextfield || textField == productCategoryTextField {
-
+            
             if Int(range.location) == 0 && (string == " ") {
                 return false
             }

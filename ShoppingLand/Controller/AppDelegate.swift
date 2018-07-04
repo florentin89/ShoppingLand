@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let context = appDelegate.persistentContainer.viewContext
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -102,11 +106,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Function which will help you to get the path for your Entities from CoreData ( usefull for "DB Browser for SQLite" )
     func applicationDocumentsDirectory() {
         if let url = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last {
-            print("Path for temporary CoreData DB: \n\(url.absoluteString)")
+            print(Constants.pathCoreDB + url.absoluteString)
         }
     }
-    
 }
 
-let appDelegate = UIApplication.shared.delegate as! AppDelegate
-let context = appDelegate.persistentContainer.viewContext

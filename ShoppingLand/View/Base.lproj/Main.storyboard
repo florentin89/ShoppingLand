@@ -59,7 +59,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="149.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImageProduct" translatesAutoresizingMaskIntoConstraints="NO" id="gRv-dB-g8a">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gRv-dB-g8a">
                                                     <rect key="frame" x="20" y="10.999999999999993" width="78" height="78"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="78" id="UWC-uO-zNq"/>
@@ -140,7 +140,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="tzH-Qy-7lZ"/>
                                 </connections>
                             </tableView>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImageUser" translatesAutoresizingMaskIntoConstraints="NO" id="8YJ-6n-I0i" userLabel="Avatar User">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8YJ-6n-I0i" userLabel="Avatar User">
                                 <rect key="frame" x="16" y="64" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="hTK-N2-99Z"/>
@@ -204,7 +204,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="124.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImageProduct" translatesAutoresizingMaskIntoConstraints="NO" id="Kbf-yQ-Gfd">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kbf-yQ-Gfd">
                                                     <rect key="frame" x="20" y="14" width="72" height="72"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="72" id="2VD-nY-BbK"/>
@@ -236,7 +236,7 @@
                                                                 <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <connections>
-                                                                <action selector="cartBuyProductButton:" destination="tqn-nE-pm7" eventType="touchUpInside" id="b11-PD-Rv1"/>
+                                                                <action selector="buySelectedProductBtn:" destination="LiW-kX-DQ1" eventType="touchUpInside" id="SzC-Zn-GGm"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -338,6 +338,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cartTotalPriceLabel" destination="db1-H4-yuz" id="WBj-8k-y4w"/>
+                                            <outlet property="checkoutBtnOutlet" destination="GEu-2j-Bp3" id="KmV-69-ifk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -389,7 +390,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="175.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImageUser" translatesAutoresizingMaskIntoConstraints="NO" id="uAB-ic-VMv">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uAB-ic-VMv">
                                                     <rect key="frame" x="20" y="11" width="118" height="118"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="118" id="cc2-O0-udu"/>
@@ -718,7 +719,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultImageProduct" translatesAutoresizingMaskIntoConstraints="NO" id="Cfl-hj-vyz">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cfl-hj-vyz">
                                                     <rect key="frame" x="20.000000000000007" y="0.0" width="99.666666666666686" height="99.666666666666671"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="Cfl-hj-vyz" secondAttribute="height" multiplier="1:1" id="I9m-bN-80T"/>
@@ -883,8 +884,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DefaultImageProduct" width="300" height="300"/>
-        <image name="DefaultImageUser" width="300" height="300"/>
         <image name="ShopCart" width="5500" height="4200"/>
         <image name="iconTab0" width="25" height="25"/>
         <image name="iconTab1" width="25" height="25"/>

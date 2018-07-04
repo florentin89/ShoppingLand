@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol ButtonInCellDelegate: class {
+    
+    // Function to detect when the user press the Buy button on a cell in the CartViewController
+    func didTouchBuyButton(_ button: UIButton, inCell: UITableViewCell)
+}
+
 class CartTableViewCell: UITableViewCell {
 
     // Components of CartTableView Cell
@@ -18,7 +24,13 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var cartProductPriceLabel: UILabel!
     @IBOutlet weak var cartTotalPriceLabel: UILabel!
     @IBOutlet weak var buyFromAmazonBtn: UIButton!
+    @IBOutlet weak var checkoutBtnOutlet: UIButton!
     
+    weak var delegate: ButtonInCellDelegate?
+    
+    @IBAction func buySelectedProductBtn(_ sender: UIButton) {
+        delegate?.didTouchBuyButton(sender, inCell: self)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,5 +41,4 @@ class CartTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-
 }

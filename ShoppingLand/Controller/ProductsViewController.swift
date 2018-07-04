@@ -40,7 +40,7 @@ class ProductsViewController: UIViewController, CellDelegate, InternetStatusIndi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
- 
+        
         updateProducts()
         DispatchQueue.main.asyncAfter(deadline: .now()+1) { KRProgressHUD.dismiss() }
     }
@@ -53,7 +53,7 @@ class ProductsViewController: UIViewController, CellDelegate, InternetStatusIndi
         NotificationCenter.default.addObserver(self, selector: #selector(ProductsViewController.defaultsChanged), name: UserDefaults.didChangeNotification, object: nil)
         defaultsChanged()
         updateProducts()
-       self.startMonitoringInternet(backgroundColor:UIColor.red, style: .statusLine, textColor:UIColor.white, message:"ShoppingLand require Internet Connection")
+        self.startMonitoringInternet(backgroundColor:UIColor.red, style: .statusLine, textColor:UIColor.white, message:Constants.requireInternetMessage)
     }
     
     // Function to update the Products Table View
@@ -78,45 +78,39 @@ class ProductsViewController: UIViewController, CellDelegate, InternetStatusIndi
             productsTableView.reloadData()
         }
         catch{
-            print(Constants.errorMessage)
+            DispatchQueue.main.async { SCLAlertView().showError(Constants.error, subTitle: Constants.errorMessage) }
         }
     }
     
     // Download photos from Google for products avatar
     func fetchPhotosForProductsFromGoogle(){
         
-        guard let requestURL = URL(string: URLGoogle.googleAPIUrl + "\(query ?? Constants.defaultGoogleImage)" + URLGoogle.googleSearchPhotosOnly + URLGoogle.googleSearchEngineID + URLGoogle.googleAPIKey)
-            else{
-                fatalError(Constants.urlNotFound)
+        for eachProduct in productsArray{
+            
+            let productNameWithSpaces = eachProduct.name!
+            query = productNameWithSpaces.replacingOccurrences(of: " ", with: "_", options: .literal, range: nil)
         }
-        
+        guard let requestURL = URL(string: URLGoogle.googleAPIUrl + "\(query ?? Constants.defaultGoogleImage)" + URLGoogle.googleSearchPhotosOnly + URLGoogle.googleSearchEngineID + URLGoogle.googleAPIKey)
+            else { fatalError(Constants.urlNotFound) }
         URLSession.shared.dataTask(with: requestURL) { (data, response, error) in
             
             guard error == nil else {
-                print(error?.localizedDescription ?? Constants.errorURLSesion)
+                DispatchQueue.main.async { SCLAlertView().showError(Constants.error, subTitle: Constants.errorURLSesion) }
                 return
             }
             do {
-                
                 let googlePhotosList = try JSONDecoder().decode(GoogleSearchModel.self, from: data!)
                 
                 self.googlePhotosArray = self.googlePhotosArray + googlePhotosList.items
-                
             } catch {
-                print(error.localizedDescription)
+                // When the limit of 100 requests for Google Photos was reached then this Alert will pop-up every time when you click on Products Tab so leave this line commented until you subscribe at Google for more requests per day.
+                //DispatchQueue.main.async { SCLAlertView().showError(Constants.error, subTitle: Constants.errorJSONDecode) }
             }
             DispatchQueue.main.async {
                 
                 self.productsTableView.reloadData()
             }
-            
             }.resume()
-    }
-    
-    
-    // Get UserPhoto from AdminViewController using the Delegation Pattern
-    func getUserPhoto(image: UIImage) {
-        userAvatarImageView.image = image
     }
     
     // Function used to load the selected User Photo
@@ -136,8 +130,9 @@ class ProductsViewController: UIViewController, CellDelegate, InternetStatusIndi
         
         if let selectedIndexPath = productsTableView.indexPathForSelectedRow{
             let detailsVC = segue.destination as! ProductDetailsViewController
-       
-            detailsVC.selectedProduct = productsArray[selectedIndexPath.row]     
+            
+            detailsVC.selectedProduct = productsArray[selectedIndexPath.row]
+            detailsVC.getGooglePhotosArray = self.googlePhotosArray
         }
     }
     
@@ -278,19 +273,21 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource{
         cell.productTitleLabel.text = productsArray[indexPath.row].name!
         cell.productDescriptionLabel.text = productsArray[indexPath.row].prodDescription!
         cell.productPriceLabel.text = String(format: Constants.floatTwoDecimals, productsArray[indexPath.row].price) + Constants.currencyPound
-        cell.productImageView.image = UIImage(named: Constants.defaultPhotoProduct)
         
+        DispatchQueue.main.async {
+            
+            let productPhotoURL = self.googlePhotosArray.first?.link ?? Constants.defaultProductPhotoURL
+            let resourcePhoto = ImageResource(downloadURL: URL(string: productPhotoURL)!, cacheKey: productPhotoURL)
+            
+            cell.productImageView.kf.setImage(with: resourcePhoto)
+            
+        }
+        
+        // Customize AddToCart btn
         cell.addToCartBtn.layer.cornerRadius = 8
         cell.addToCartBtn.layer.borderWidth = 2
         cell.addToCartBtn.layer.borderColor = UIColor.white.cgColor
         
-        DispatchQueue.main.async {
-            
-            let productPhotoURL = self.googlePhotosArray.first?.link ?? Constants.defaultPhotoProduct
-            let resourcePhoto = ImageResource(downloadURL: URL(string: productPhotoURL)!, cacheKey: productPhotoURL)
-            
-            cell.productImageView.kf.setImage(with: resourcePhoto)
-        }
         return cell
     }
     
@@ -298,28 +295,39 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource{
         self.performSegue(withIdentifier: Constants.segueForDetailsPage, sender: indexPath)
     }
     
+    // Remove all products from the cart when one ore more products are deleted from the CoreData.
+    func removeAllProductsFromCart(){
+        
+        selectedProductsArray = [Product]()
+        priceForSelectedProductsArray = [Float]()
+        counterItem = 0
+        numberOfProductsInCartLabel.text = String(0)
+        self.tabBarController?.tabBar.items?[1].badgeValue = String(0)
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+    
     // Function to delete a Product from the table view and also from CoreData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         let productEntity = Constants.productEntity
-        let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let product = productsArray[indexPath.row]
         
         if editingStyle == .delete {
-            managedContext.delete(product)
+            context.delete(product)
             do {
-                try managedContext.save()
-            } catch let error as NSError {
-                print(Constants.errorDeletingProduct + "\(error.userInfo)")
+                try context.save()
+                removeAllProductsFromCart()
+            } catch _ as NSError {
+                DispatchQueue.main.async { SCLAlertView().showError(Constants.error, subTitle: Constants.errorDeletingProduct) }
             }
         }
         
         // fetch new data from DB and reload products table view
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: productEntity)
         do {
-            productsArray = try managedContext.fetch(fetchRequest) as! [Product]
-        } catch let error as NSError {
-            print(Constants.errorFetchingData + "\(error.userInfo)")
+            productsArray = try context.fetch(fetchRequest) as! [Product]
+        } catch _ as NSError {
+            DispatchQueue.main.async { SCLAlertView().showError(Constants.error, subTitle: Constants.errorFetchingData) }
         }
         productsTableView.reloadData()
     }
@@ -343,3 +351,5 @@ extension URLGoogle{
     static let googleSearchEngineID = Constants.googleSearchEngineID
     static let googleAPIKey = Constants.googleAPIKey
 }
+
+

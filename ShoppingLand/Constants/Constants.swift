@@ -72,4 +72,9 @@ enum Constants {
     static let reminderMessageBuyProduct = "Don't forget to buy your favorite product from ShoppingLand."
     static let errorSavingEvent = "Error: Failed while saving event."
     static let eventSavedSuccessfull = "The event was saved successfull. \nCheck you calendar for more details."
+    static let requireInternetMessage = "ShoppingLand require Internet Connection"
+    static let errorJSONDecode = "Error on JSON Decoding."
+    //static let defaultProductPhotoURL = "https://lh5.googleusercontent.com/Or3OHfG0PyNEfi2pc2y6AxT9g6QqQImwEHI0okm8g9x9ZYljY857b9Q0lRb28wUIRq0EzpZK352IH3e0em93=w3128-h3244"
+    static let defaultProductPhotoURL = "https://s3.amazonaws.com/MarketingFromScratch/images/are-you-missing-something-from-sales.jpg"
+    static let pathCoreDB = "\nPath for temporary CoreData DB:\n"
 }
