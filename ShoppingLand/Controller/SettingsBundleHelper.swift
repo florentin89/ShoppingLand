@@ -21,15 +21,14 @@ class SettingsBundleHelper {
             UserDefaults.standard.set(false, forKey: SettingsBundleKeys.Reset)
             let appDomain: String? = Bundle.main.bundleIdentifier
             UserDefaults.standard.removePersistentDomain(forName: appDomain!)
-            
         }
     }
     
     // Set version for App and Build
     class func setVersionAndBuildNumber() {
-        let version: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        UserDefaults.standard.set(version, forKey: "version_preference")
-        let build: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
-        UserDefaults.standard.set(build, forKey: "build_preference")
+        let version: String = Bundle.main.object(forInfoDictionaryKey: Constants.cfBundleShort) as! String
+        UserDefaults.standard.set(version, forKey: Constants.versionPreference)
+        let build: String = Bundle.main.object(forInfoDictionaryKey: Constants.cfBundleVersion) as! String
+        UserDefaults.standard.set(build, forKey: Constants.buildPreference)
     }
 }

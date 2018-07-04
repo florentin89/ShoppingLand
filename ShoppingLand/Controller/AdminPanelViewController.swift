@@ -25,6 +25,7 @@ class AdminPanelViewController: UITableViewController {
     @IBOutlet weak var userPhotoImageView: UIImageView!
     @IBOutlet weak var saveBtnOutlet: UIButton!
     @IBOutlet weak var resetBtnOutlet: UIButton!
+    @IBOutlet weak var checkProfitBtnOutlet: UIButton!
     
     // Properties
     var currentUser = UIDevice.current.name
@@ -89,6 +90,11 @@ class AdminPanelViewController: UITableViewController {
         productDescriptionTextView.layer.cornerRadius = 5.0
         productDescriptionTextView.layer.borderWidth = 1
         productDescriptionTextView.layer.borderColor = UIColor.black.cgColor
+        
+        // Customize CheckProfit Btn
+        checkProfitBtnOutlet.layer.cornerRadius = 10
+        checkProfitBtnOutlet.layer.borderWidth = 2
+        checkProfitBtnOutlet.layer.borderColor = UIColor.white.cgColor
         
         // Remove last cell from TableView
         adminTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: adminTableView.frame.size.width, height: 1))

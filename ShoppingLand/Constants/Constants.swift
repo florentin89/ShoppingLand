@@ -77,4 +77,8 @@ enum Constants {
     //static let defaultProductPhotoURL = "https://lh5.googleusercontent.com/Or3OHfG0PyNEfi2pc2y6AxT9g6QqQImwEHI0okm8g9x9ZYljY857b9Q0lRb28wUIRq0EzpZK352IH3e0em93=w3128-h3244"
     static let defaultProductPhotoURL = "https://s3.amazonaws.com/MarketingFromScratch/images/are-you-missing-something-from-sales.jpg"
     static let pathCoreDB = "\nPath for temporary CoreData DB:\n"
+    static let cfBundleShort = "CFBundleShortVersionString"
+    static let versionPreference = "version_preference"
+    static let cfBundleVersion = "CFBundleVersion"
+    static let buildPreference = "build_preference"
 }

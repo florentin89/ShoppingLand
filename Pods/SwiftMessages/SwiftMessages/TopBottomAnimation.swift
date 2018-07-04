@@ -17,7 +17,7 @@ public class TopBottomAnimation: NSObject, Animator {
 
     public weak var delegate: AnimationDelegate?
 
-    open let style: Style
+    public let style: Style
 
     open var closeSpeedThreshold: CGFloat = 750.0;
 

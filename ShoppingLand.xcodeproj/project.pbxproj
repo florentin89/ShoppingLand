@@ -18,6 +18,11 @@
 		B522974B20DC1510006A56DA /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522974A20DC1510006A56DA /* ProductTableViewCell.swift */; };
 		B536AB5920E3E6C200469324 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B536AB5820E3E6C200469324 /* Settings.bundle */; };
 		B536AB5B20E3EC9E00469324 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536AB5A20E3EC9E00469324 /* SettingsBundleHelper.swift */; };
+		B587D50D20ED4E8E00380EF1 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587D50C20ED4E8E00380EF1 /* BankAccount.swift */; };
+		B587D50F20ED4EB600380EF1 /* ProfitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587D50E20ED4EB600380EF1 /* ProfitViewController.swift */; };
+		B587D51820ED533600380EF1 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587D51720ED533600380EF1 /* IntentHandler.swift */; };
+		B587D51C20ED533600380EF1 /* Siri ShoppingLand.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B587D51520ED533600380EF1 /* Siri ShoppingLand.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B587D52220ED55F600380EF1 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587D50C20ED4E8E00380EF1 /* BankAccount.swift */; };
 		B5B64BF920E63DCA0023443F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B64BF820E63DCA0023443F /* Constants.swift */; };
 		B5DF6DDE20DFF67200A06435 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DF6DDD20DFF67200A06435 /* CoreDataStack.swift */; };
 		B5DF6DE520DFFDC300A06435 /* ShoppingLand.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5DF6DE320DFFDC300A06435 /* ShoppingLand.xcdatamodeld */; };
@@ -26,6 +31,30 @@
 		B5FC7CE620E1266100530F21 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5FC7CE420E106D700530F21 /* AssetsLibrary.framework */; };
 		B5FC7CE820E158E900530F21 /* GoogleSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FC7CE720E158E900530F21 /* GoogleSearchModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B587D51A20ED533600380EF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B522972120DBF47E006A56DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B587D51420ED533600380EF1;
+			remoteInfo = "Siri ShoppingLand";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B587D52020ED533600380EF1 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B587D51C20ED533600380EF1 /* Siri ShoppingLand.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		257EC222F0BFFB6D564E1180 /* Pods-ShoppingLand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingLand.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShoppingLand/Pods-ShoppingLand.release.xcconfig"; sourceTree = "<group>"; };
@@ -41,6 +70,13 @@
 		B522974A20DC1510006A56DA /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		B536AB5820E3E6C200469324 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B536AB5A20E3EC9E00469324 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		B587D50C20ED4E8E00380EF1 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
+		B587D50E20ED4EB600380EF1 /* ProfitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitViewController.swift; sourceTree = "<group>"; };
+		B587D51020ED500700380EF1 /* ShoppingLand.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShoppingLand.entitlements; sourceTree = "<group>"; };
+		B587D51520ED533600380EF1 /* Siri ShoppingLand.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Siri ShoppingLand.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B587D51720ED533600380EF1 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		B587D51920ED533600380EF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B587D52120ED552700380EF1 /* Siri ShoppingLand.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Siri ShoppingLand.entitlements"; sourceTree = "<group>"; };
 		B5B64BF820E63DCA0023443F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B5DF6DDD20DFF67200A06435 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B5DF6DE420DFFDC300A06435 /* ShoppingLand.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingLand.xcdatamodel; sourceTree = "<group>"; };
@@ -59,6 +95,13 @@
 			files = (
 				B5FC7CE620E1266100530F21 /* AssetsLibrary.framework in Frameworks */,
 				2EA4021DE5E9F3D4F1D1B811 /* Pods_ShoppingLand.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B587D51220ED533600380EF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				B522972B20DBF47E006A56DA /* ShoppingLand */,
+				B587D51620ED533600380EF1 /* Siri ShoppingLand */,
 				B522972A20DBF47E006A56DA /* Products */,
 				AE2E801D5331D5A7CE37942D /* Pods */,
 				30B231B49EBB887CAF6C4D68 /* Frameworks */,
@@ -97,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				B522972920DBF47E006A56DA /* ShoppingLand.app */,
+				B587D51520ED533600380EF1 /* Siri ShoppingLand.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +149,7 @@
 		B522972B20DBF47E006A56DA /* ShoppingLand */ = {
 			isa = PBXGroup;
 			children = (
+				B587D51020ED500700380EF1 /* ShoppingLand.entitlements */,
 				B5B64BFA20E643A20023443F /* Constants */,
 				B522974420DBF515006A56DA /* CoreData */,
 				B522974120DBF4E9006A56DA /* Model */,
@@ -139,6 +185,9 @@
 				B522972E20DBF47F006A56DA /* ProductsViewController.swift */,
 				B522974820DBF90B006A56DA /* ProductDetailsViewController.swift */,
 				B522974620DBF8FB006A56DA /* CartViewController.swift */,
+				B587D50E20ED4EB600380EF1 /* ProfitViewController.swift */,
+				B587D50C20ED4E8E00380EF1 /* BankAccount.swift */,
+				B536AB5A20E3EC9E00469324 /* SettingsBundleHelper.swift */,
 				B522972C20DBF47F006A56DA /* AppDelegate.swift */,
 			);
 			path = Controller;
@@ -159,9 +208,18 @@
 				B522973820DBF481006A56DA /* LaunchScreen.storyboard */,
 				B522973B20DBF481006A56DA /* Info.plist */,
 				B536AB5820E3E6C200469324 /* Settings.bundle */,
-				B536AB5A20E3EC9E00469324 /* SettingsBundleHelper.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B587D51620ED533600380EF1 /* Siri ShoppingLand */ = {
+			isa = PBXGroup;
+			children = (
+				B587D52120ED552700380EF1 /* Siri ShoppingLand.entitlements */,
+				B587D51720ED533600380EF1 /* IntentHandler.swift */,
+				B587D51920ED533600380EF1 /* Info.plist */,
+			);
+			path = "Siri ShoppingLand";
 			sourceTree = "<group>";
 		};
 		B5B64BFA20E643A20023443F /* Constants */ = {
@@ -193,15 +251,34 @@
 				B522972620DBF47E006A56DA /* Frameworks */,
 				B522972720DBF47E006A56DA /* Resources */,
 				614AE1783B1639FEABF6DBC5 /* [CP] Embed Pods Frameworks */,
+				B587D52020ED533600380EF1 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B587D51B20ED533600380EF1 /* PBXTargetDependency */,
 			);
 			name = ShoppingLand;
 			productName = ComputersLand;
 			productReference = B522972920DBF47E006A56DA /* ShoppingLand.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B587D51420ED533600380EF1 /* Siri ShoppingLand */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B587D51D20ED533600380EF1 /* Build configuration list for PBXNativeTarget "Siri ShoppingLand" */;
+			buildPhases = (
+				B587D51120ED533600380EF1 /* Sources */,
+				B587D51220ED533600380EF1 /* Frameworks */,
+				B587D51320ED533600380EF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Siri ShoppingLand";
+			productName = "Siri ShoppingLand";
+			productReference = B587D51520ED533600380EF1 /* Siri ShoppingLand.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -215,6 +292,22 @@
 				TargetAttributes = {
 					B522972820DBF47E006A56DA = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
+						};
+					};
+					B587D51420ED533600380EF1 = {
+						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -232,6 +325,7 @@
 			projectRoot = "";
 			targets = (
 				B522972820DBF47E006A56DA /* ShoppingLand */,
+				B587D51420ED533600380EF1 /* Siri ShoppingLand */,
 			);
 		};
 /* End PBXProject section */
@@ -245,6 +339,13 @@
 				B522973720DBF481006A56DA /* Assets.xcassets in Resources */,
 				B536AB5920E3E6C200469324 /* Settings.bundle in Resources */,
 				B522973220DBF47F006A56DA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B587D51320ED533600380EF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +409,9 @@
 				B522972F20DBF47F006A56DA /* ProductsViewController.swift in Sources */,
 				B5DF6DDE20DFF67200A06435 /* CoreDataStack.swift in Sources */,
 				B522972D20DBF47F006A56DA /* AppDelegate.swift in Sources */,
+				B587D50D20ED4E8E00380EF1 /* BankAccount.swift in Sources */,
 				B522974920DBF90B006A56DA /* ProductDetailsViewController.swift in Sources */,
+				B587D50F20ED4EB600380EF1 /* ProfitViewController.swift in Sources */,
 				B5DF6DE520DFFDC300A06435 /* ShoppingLand.xcdatamodeld in Sources */,
 				B522974B20DC1510006A56DA /* ProductTableViewCell.swift in Sources */,
 				B5E7793420DD31790027C8F3 /* AdminPanelViewController.swift in Sources */,
@@ -319,7 +422,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B587D51120ED533600380EF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B587D51820ED533600380EF1 /* IntentHandler.swift in Sources */,
+				B587D52220ED55F600380EF1 /* BankAccount.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B587D51B20ED533600380EF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B587D51420ED533600380EF1 /* Siri ShoppingLand */;
+			targetProxy = B587D51A20ED533600380EF1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B522973020DBF47F006A56DA /* Main.storyboard */ = {
@@ -459,16 +579,18 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D9C2850241E9F510D74F6B25 /* Pods-ShoppingLand.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShoppingLand/ShoppingLand.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q5YJ9F2VSX;
+				DEVELOPMENT_TEAM = WHW5C4JA8E;
 				INFOPLIST_FILE = "ShoppingLand/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Florentin.ShoppingLand;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tae.Florentin.ShoppingLand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -479,18 +601,62 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 257EC222F0BFFB6D564E1180 /* Pods-ShoppingLand.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShoppingLand/ShoppingLand.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q5YJ9F2VSX;
+				DEVELOPMENT_TEAM = WHW5C4JA8E;
 				INFOPLIST_FILE = "ShoppingLand/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Florentin.ShoppingLand;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tae.Florentin.ShoppingLand;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B587D51E20ED533600380EF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Siri ShoppingLand/Siri ShoppingLand.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WHW5C4JA8E;
+				INFOPLIST_FILE = "Siri ShoppingLand/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tae.Florentin.ShoppingLand.Siri-ShoppingLand";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B587D51F20ED533600380EF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Siri ShoppingLand/Siri ShoppingLand.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WHW5C4JA8E;
+				INFOPLIST_FILE = "Siri ShoppingLand/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tae.Florentin.ShoppingLand.Siri-ShoppingLand";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -512,6 +678,15 @@
 			buildConfigurations = (
 				B522973F20DBF481006A56DA /* Debug */,
 				B522974020DBF481006A56DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B587D51D20ED533600380EF1 /* Build configuration list for PBXNativeTarget "Siri ShoppingLand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B587D51E20ED533600380EF1 /* Debug */,
+				B587D51F20ED533600380EF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
