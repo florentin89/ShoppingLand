@@ -23,6 +23,9 @@
 		B587D51820ED533600380EF1 /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587D51720ED533600380EF1 /* IntentHandler.swift */; };
 		B587D51C20ED533600380EF1 /* Siri ShoppingLand.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B587D51520ED533600380EF1 /* Siri ShoppingLand.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B587D52220ED55F600380EF1 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587D50C20ED4E8E00380EF1 /* BankAccount.swift */; };
+		B587D52520EE12FE00380EF1 /* Products.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B587D52420EE12FE00380EF1 /* Products.storyboard */; };
+		B587D52720EE131400380EF1 /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B587D52620EE131400380EF1 /* Cart.storyboard */; };
+		B587D52920EE222000380EF1 /* AdminPanel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B587D52820EE222000380EF1 /* AdminPanel.storyboard */; };
 		B5B64BF920E63DCA0023443F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B64BF820E63DCA0023443F /* Constants.swift */; };
 		B5DF6DDE20DFF67200A06435 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DF6DDD20DFF67200A06435 /* CoreDataStack.swift */; };
 		B5DF6DE520DFFDC300A06435 /* ShoppingLand.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5DF6DE320DFFDC300A06435 /* ShoppingLand.xcdatamodeld */; };
@@ -77,6 +80,9 @@
 		B587D51720ED533600380EF1 /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		B587D51920ED533600380EF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B587D52120ED552700380EF1 /* Siri ShoppingLand.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Siri ShoppingLand.entitlements"; sourceTree = "<group>"; };
+		B587D52420EE12FE00380EF1 /* Products.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Products.storyboard; sourceTree = "<group>"; };
+		B587D52620EE131400380EF1 /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
+		B587D52820EE222000380EF1 /* AdminPanel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminPanel.storyboard; sourceTree = "<group>"; };
 		B5B64BF820E63DCA0023443F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B5DF6DDD20DFF67200A06435 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B5DF6DE420DFFDC300A06435 /* ShoppingLand.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingLand.xcdatamodel; sourceTree = "<group>"; };
@@ -149,7 +155,7 @@
 		B522972B20DBF47E006A56DA /* ShoppingLand */ = {
 			isa = PBXGroup;
 			children = (
-				B587D51020ED500700380EF1 /* ShoppingLand.entitlements */,
+				B587D52320EE12CE00380EF1 /* Storyboards */,
 				B5B64BFA20E643A20023443F /* Constants */,
 				B522974420DBF515006A56DA /* CoreData */,
 				B522974120DBF4E9006A56DA /* Model */,
@@ -172,7 +178,6 @@
 		B522974220DBF4EF006A56DA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B522973020DBF47F006A56DA /* Main.storyboard */,
 				B522973620DBF481006A56DA /* Assets.xcassets */,
 			);
 			path = View;
@@ -205,7 +210,7 @@
 		B522974520DBF51F006A56DA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B522973820DBF481006A56DA /* LaunchScreen.storyboard */,
+				B587D51020ED500700380EF1 /* ShoppingLand.entitlements */,
 				B522973B20DBF481006A56DA /* Info.plist */,
 				B536AB5820E3E6C200469324 /* Settings.bundle */,
 			);
@@ -220,6 +225,18 @@
 				B587D51920ED533600380EF1 /* Info.plist */,
 			);
 			path = "Siri ShoppingLand";
+			sourceTree = "<group>";
+		};
+		B587D52320EE12CE00380EF1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B522973020DBF47F006A56DA /* Main.storyboard */,
+				B587D52420EE12FE00380EF1 /* Products.storyboard */,
+				B587D52620EE131400380EF1 /* Cart.storyboard */,
+				B587D52820EE222000380EF1 /* AdminPanel.storyboard */,
+				B522973820DBF481006A56DA /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		B5B64BFA20E643A20023443F /* Constants */ = {
@@ -338,6 +355,9 @@
 				B522973A20DBF481006A56DA /* LaunchScreen.storyboard in Resources */,
 				B522973720DBF481006A56DA /* Assets.xcassets in Resources */,
 				B536AB5920E3E6C200469324 /* Settings.bundle in Resources */,
+				B587D52920EE222000380EF1 /* AdminPanel.storyboard in Resources */,
+				B587D52520EE12FE00380EF1 /* Products.storyboard in Resources */,
+				B587D52720EE131400380EF1 /* Cart.storyboard in Resources */,
 				B522973220DBF47F006A56DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,7 +601,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ShoppingLand/ShoppingLand.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "ShoppingLand/Supporting Files/ShoppingLand.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WHW5C4JA8E;
 				INFOPLIST_FILE = "ShoppingLand/Supporting Files/Info.plist";
@@ -603,7 +623,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ShoppingLand/ShoppingLand.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "ShoppingLand/Supporting Files/ShoppingLand.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WHW5C4JA8E;
 				INFOPLIST_FILE = "ShoppingLand/Supporting Files/Info.plist";

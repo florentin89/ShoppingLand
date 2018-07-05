@@ -104,10 +104,10 @@ class ProductDetailsViewController: UITableViewController {
             
             if(granted) && (error == nil){
                 let event:EKEvent = EKEvent(eventStore: eventStore)
-                event.title = Constants.reminderTitleBuyProduct
+                event.title = Constants.reminderTitleBuyProduct + self.selectedProduct.name!
                 event.startDate = Date()
                 event.endDate = Date()
-                event.notes = Constants.reminderMessageBuyProduct
+                event.notes = Constants.reminderMessageBuyProduct + self.selectedProduct.name!
                 event.calendar = eventStore.defaultCalendarForNewEvents
                 do{
                     try eventStore.save(event, span: .thisEvent)

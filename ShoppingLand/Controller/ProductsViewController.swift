@@ -161,10 +161,9 @@ class ProductsViewController: UIViewController, CellDelegate, InternetStatusIndi
     // Function to open the AdminPanelViewController
     @objc func adminImageTapped(gesture: UIGestureRecognizer) {
         
-        let storyBoard : UIStoryboard = UIStoryboard(name: Constants.nameOfMainSB, bundle:nil)
+        let storyBoard : UIStoryboard = UIStoryboard(name: Constants.adminSB, bundle:nil)
         let adminPanelVC = storyBoard.instantiateViewController(withIdentifier: Constants.adminPanelStoryboard) as! AdminPanelViewController
         self.navigationController?.pushViewController(adminPanelVC, animated: true)
-        
     }
     
     // Func to register the Settings Bundle when the app start
