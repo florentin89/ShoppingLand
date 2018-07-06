@@ -16,6 +16,8 @@ class SettingsBundleHelper {
         static let BuildVersionKey = Constants.buildVersionKey
         static let AppVersionKey = Constants.appVersionKey
     }
+    
+    // Function executed when we reset the app from Settings
     class func checkAndExecuteSettings() {
         if UserDefaults.standard.bool(forKey: SettingsBundleKeys.Reset) {
             UserDefaults.standard.set(false, forKey: SettingsBundleKeys.Reset)

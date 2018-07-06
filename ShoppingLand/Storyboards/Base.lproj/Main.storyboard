@@ -32,7 +32,7 @@
         <scene sceneID="sLa-Hg-1OC">
             <objects>
                 <viewControllerPlaceholder storyboardName="Products" id="coW-r4-98r" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="PsI-Cr-QG6"/>
+                    <tabBarItem key="tabBarItem" title="Products" image="iconTab0" selectedImage="iconTab0" id="PsI-Cr-QG6" userLabel="Products"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crK-iL-mfz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,11 +42,15 @@
         <scene sceneID="iGe-4n-0Fm">
             <objects>
                 <viewControllerPlaceholder storyboardName="Cart" id="ynU-BC-6RI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Nwf-fx-fJd"/>
+                    <tabBarItem key="tabBarItem" title="Cart" image="iconTab1" selectedImage="iconTab1" id="Nwf-fx-fJd" userLabel="Cart"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQa-UU-wFA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="918" y="1818"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconTab0" width="25" height="25"/>
+        <image name="iconTab1" width="25" height="25"/>
+    </resources>
 </document>

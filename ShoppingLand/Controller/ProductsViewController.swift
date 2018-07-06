@@ -274,12 +274,10 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource{
         cell.productPriceLabel.text = String(format: Constants.floatTwoDecimals, productsArray[indexPath.row].price) + Constants.currencyPound
         
         DispatchQueue.main.async {
-            
             let productPhotoURL = self.googlePhotosArray.first?.link ?? Constants.defaultProductPhotoURL
             let resourcePhoto = ImageResource(downloadURL: URL(string: productPhotoURL)!, cacheKey: productPhotoURL)
             
             cell.productImageView.kf.setImage(with: resourcePhoto)
-            
         }
         
         // Customize AddToCart btn

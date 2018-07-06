@@ -37,7 +37,7 @@ enum Constants {
     static let success = "Success"
     static let messageProductAdded = "Product was added with success !"
     static let messagePhotoSaved = "Photo was saved."
-    static let defaultGoogleImage = "flagUK"
+    static let defaultGoogleImage = "ChihuahuaExtreme"
     static let errorURLSesion = "Error URL Session."
     static let urlNotFound = "URL can't be found."
     static let adminPanelStoryboard = "AdminPanelStoryboard"
@@ -81,4 +81,8 @@ enum Constants {
     static let versionPreference = "version_preference"
     static let cfBundleVersion = "CFBundleVersion"
     static let buildPreference = "build_preference"
+    static let lightThemeNotificationKey = "themeSelected.light"
+    static let darkThemeNotificationKey = "themeSelected.dark"
+    static let accountBalance = "Account Balance: £"
+    static let identifierThemeSelection = "ThemeSelection"
 }
