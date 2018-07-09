@@ -207,30 +207,7 @@ extension AdminPanelViewController: UITextFieldDelegate, UITextViewDelegate{
     // Function to verify the TextFields input
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
-        // Set max length for ProductName and ProductCategory to 20 characters
-        if (textField == productNameTextfield || textField == productCategoryTextField){
-            
-            guard let text = textField.text else { return true }
-            let newLength = text.count + string.count - range.length
-            return newLength <= 20
-        }
-        
-        // Set max length for ProdDescr to 150 characters
-        if (textField == productDescriptionTextView){
-            
-            guard let text = textField.text else { return true }
-            let newLength = text.count + string.count - range.length
-            return newLength <= 150
-        }
-        
-        // Set max length for ProductPrice to 15 characters
-        if (textField == productPriceTextfield){
-            
-            guard let text = textField.text else { return true }
-            let newLength = text.count + string.count - range.length
-            return newLength <= 15
-        }
-        
+
         // Don't allow user to enter spaces in textfields at beginning
         if textField == productNameTextfield || textField == productCategoryTextField {
             
@@ -260,6 +237,7 @@ extension AdminPanelViewController: UITextFieldDelegate, UITextViewDelegate{
                 return true
             }
         }
+ 
         return true
     }
 }

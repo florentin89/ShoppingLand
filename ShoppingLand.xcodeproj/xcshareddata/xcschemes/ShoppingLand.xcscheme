@@ -39,6 +39,9 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "AdminPanelViewControllerTests/testDescriptionNameTextFieldLimit()">
+               </Test>
+               <Test
                   Identifier = "AdminPanelViewControllerTests/testProductNameTextFieldLimit()">
                </Test>
                <Test

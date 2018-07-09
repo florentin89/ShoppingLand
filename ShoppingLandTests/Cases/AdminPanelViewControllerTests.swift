@@ -20,7 +20,7 @@ class AdminPanelViewControllerTests: XCTestCase {
     }
 
     func testProductNameTextFieldLimit() {
-        // Set up view before interacting with the text field
+        
         let storyboard = UIStoryboard(name: "AdminPanel", bundle: Bundle(for: type(of: self)))
         let vc = storyboard.instantiateViewController(withIdentifier: "AdminPanelViewController") as! AdminPanelViewController
         vc.loadView()
@@ -39,7 +39,7 @@ class AdminPanelViewControllerTests: XCTestCase {
     
     
     func testDescriptionNameTextFieldLimit() {
-        // Set up view before interacting with the text field
+        
         let storyboard = UIStoryboard(name: "AdminPanel", bundle: Bundle(for: type(of: self)))
         let vc = storyboard.instantiateViewController(withIdentifier: "AdminPanelViewController") as! AdminPanelViewController
         vc.loadView()
