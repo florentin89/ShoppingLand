@@ -92,6 +92,7 @@ class ProductsViewController: UIViewController, CellDelegate, InternetStatusIndi
         }
         guard let requestURL = URL(string: URLGoogle.googleAPIUrl + "\(query ?? Constants.defaultGoogleImage)" + URLGoogle.googleSearchPhotosOnly + URLGoogle.googleSearchEngineID + URLGoogle.googleAPIKey)
             else { fatalError(Constants.urlNotFound) }
+        print(requestURL)
         URLSession.shared.dataTask(with: requestURL) { (data, response, error) in
             
             guard error == nil else {

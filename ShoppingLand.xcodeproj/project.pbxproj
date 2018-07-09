@@ -18,6 +18,7 @@
 		B522974B20DC1510006A56DA /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B522974A20DC1510006A56DA /* ProductTableViewCell.swift */; };
 		B536AB5920E3E6C200469324 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B536AB5820E3E6C200469324 /* Settings.bundle */; };
 		B536AB5B20E3EC9E00469324 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B536AB5A20E3EC9E00469324 /* SettingsBundleHelper.swift */; };
+		B5802CBD20F3701700AF8FFA /* AdminPanelViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5802CBC20F3701700AF8FFA /* AdminPanelViewControllerTests.swift */; };
 		B584F72120EFAD2700DEAC01 /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B584F72020EFAD2700DEAC01 /* ThemeSelectionViewController.swift */; };
 		B587D50D20ED4E8E00380EF1 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587D50C20ED4E8E00380EF1 /* BankAccount.swift */; };
 		B587D50F20ED4EB600380EF1 /* ProfitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587D50E20ED4EB600380EF1 /* ProfitViewController.swift */; };
@@ -28,6 +29,7 @@
 		B587D52720EE131400380EF1 /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B587D52620EE131400380EF1 /* Cart.storyboard */; };
 		B587D52920EE222000380EF1 /* AdminPanel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B587D52820EE222000380EF1 /* AdminPanel.storyboard */; };
 		B5B64BF920E63DCA0023443F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B64BF820E63DCA0023443F /* Constants.swift */; };
+		B5B846DB20F3BA2200168E35 /* ProductsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B846DA20F3BA2200168E35 /* ProductsViewControllerTests.swift */; };
 		B5DF6DDE20DFF67200A06435 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DF6DDD20DFF67200A06435 /* CoreDataStack.swift */; };
 		B5DF6DE520DFFDC300A06435 /* ShoppingLand.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5DF6DE320DFFDC300A06435 /* ShoppingLand.xcdatamodeld */; };
 		B5E7793420DD31790027C8F3 /* AdminPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E7793320DD31790027C8F3 /* AdminPanelViewController.swift */; };
@@ -37,6 +39,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B5802CB420F3683400AF8FFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B522972120DBF47E006A56DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B522972820DBF47E006A56DA;
+			remoteInfo = ShoppingLand;
+		};
 		B587D51A20ED533600380EF1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B522972120DBF47E006A56DA /* Project object */;
@@ -74,6 +83,9 @@
 		B522974A20DC1510006A56DA /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		B536AB5820E3E6C200469324 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B536AB5A20E3EC9E00469324 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		B5802CAF20F3683400AF8FFA /* ShoppingLandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShoppingLandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5802CB320F3683400AF8FFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5802CBC20F3701700AF8FFA /* AdminPanelViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPanelViewControllerTests.swift; sourceTree = "<group>"; };
 		B584F72020EFAD2700DEAC01 /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		B587D50C20ED4E8E00380EF1 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
 		B587D50E20ED4EB600380EF1 /* ProfitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +98,7 @@
 		B587D52620EE131400380EF1 /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
 		B587D52820EE222000380EF1 /* AdminPanel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AdminPanel.storyboard; sourceTree = "<group>"; };
 		B5B64BF820E63DCA0023443F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B5B846DA20F3BA2200168E35 /* ProductsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewControllerTests.swift; sourceTree = "<group>"; };
 		B5DF6DDD20DFF67200A06435 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B5DF6DE420DFFDC300A06435 /* ShoppingLand.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingLand.xcdatamodel; sourceTree = "<group>"; };
 		B5E7793320DD31790027C8F3 /* AdminPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminPanelViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +116,13 @@
 			files = (
 				B5FC7CE620E1266100530F21 /* AssetsLibrary.framework in Frameworks */,
 				2EA4021DE5E9F3D4F1D1B811 /* Pods_ShoppingLand.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5802CAC20F3683400AF8FFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +159,7 @@
 			children = (
 				B522972B20DBF47E006A56DA /* ShoppingLand */,
 				B587D51620ED533600380EF1 /* Siri ShoppingLand */,
+				B5802CB020F3683400AF8FFA /* ShoppingLandTests */,
 				B522972A20DBF47E006A56DA /* Products */,
 				AE2E801D5331D5A7CE37942D /* Pods */,
 				30B231B49EBB887CAF6C4D68 /* Frameworks */,
@@ -150,6 +171,7 @@
 			children = (
 				B522972920DBF47E006A56DA /* ShoppingLand.app */,
 				B587D51520ED533600380EF1 /* Siri ShoppingLand.appex */,
+				B5802CAF20F3683400AF8FFA /* ShoppingLandTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,6 +242,40 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B5802CB020F3683400AF8FFA /* ShoppingLandTests */ = {
+			isa = PBXGroup;
+			children = (
+				B5802CB920F36EF400AF8FFA /* Cases */,
+				B5802CBA20F36F0000AF8FFA /* Data */,
+				B5802CBB20F36F0500AF8FFA /* Supporting Files */,
+			);
+			path = ShoppingLandTests;
+			sourceTree = "<group>";
+		};
+		B5802CB920F36EF400AF8FFA /* Cases */ = {
+			isa = PBXGroup;
+			children = (
+				B5802CBC20F3701700AF8FFA /* AdminPanelViewControllerTests.swift */,
+				B5B846DA20F3BA2200168E35 /* ProductsViewControllerTests.swift */,
+			);
+			path = Cases;
+			sourceTree = "<group>";
+		};
+		B5802CBA20F36F0000AF8FFA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B5802CBB20F36F0500AF8FFA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B5802CB320F3683400AF8FFA /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		B587D51620ED533600380EF1 /* Siri ShoppingLand */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,6 +339,24 @@
 			productReference = B522972920DBF47E006A56DA /* ShoppingLand.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B5802CAE20F3683400AF8FFA /* ShoppingLandTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5802CB820F3683400AF8FFA /* Build configuration list for PBXNativeTarget "ShoppingLandTests" */;
+			buildPhases = (
+				B5802CAB20F3683400AF8FFA /* Sources */,
+				B5802CAC20F3683400AF8FFA /* Frameworks */,
+				B5802CAD20F3683400AF8FFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B5802CB520F3683400AF8FFA /* PBXTargetDependency */,
+			);
+			name = ShoppingLandTests;
+			productName = ShoppingLandTests;
+			productReference = B5802CAF20F3683400AF8FFA /* ShoppingLandTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B587D51420ED533600380EF1 /* Siri ShoppingLand */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B587D51D20ED533600380EF1 /* Build configuration list for PBXNativeTarget "Siri ShoppingLand" */;
@@ -321,6 +395,11 @@
 							};
 						};
 					};
+					B5802CAE20F3683400AF8FFA = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
+						TestTargetID = B522972820DBF47E006A56DA;
+					};
 					B587D51420ED533600380EF1 = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
@@ -346,6 +425,7 @@
 			targets = (
 				B522972820DBF47E006A56DA /* ShoppingLand */,
 				B587D51420ED533600380EF1 /* Siri ShoppingLand */,
+				B5802CAE20F3683400AF8FFA /* ShoppingLandTests */,
 			);
 		};
 /* End PBXProject section */
@@ -362,6 +442,13 @@
 				B587D52520EE12FE00380EF1 /* Products.storyboard in Resources */,
 				B587D52720EE131400380EF1 /* Cart.storyboard in Resources */,
 				B522973220DBF47F006A56DA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5802CAD20F3683400AF8FFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +533,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5802CAB20F3683400AF8FFA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5B846DB20F3BA2200168E35 /* ProductsViewControllerTests.swift in Sources */,
+				B5802CBD20F3701700AF8FFA /* AdminPanelViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B587D51120ED533600380EF1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,6 +554,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B5802CB520F3683400AF8FFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B522972820DBF47E006A56DA /* ShoppingLand */;
+			targetProxy = B5802CB420F3683400AF8FFA /* PBXContainerItemProxy */;
+		};
 		B587D51B20ED533600380EF1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B587D51420ED533600380EF1 /* Siri ShoppingLand */;
@@ -643,6 +744,53 @@
 			};
 			name = Release;
 		};
+		B5802CB620F3683400AF8FFA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q5YJ9F2VSX;
+				INFOPLIST_FILE = "ShoppingLandTests/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Florentin.ShoppingLandTests.ShoppingLandTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShoppingLand.app/ShoppingLand";
+			};
+			name = Debug;
+		};
+		B5802CB720F3683400AF8FFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q5YJ9F2VSX;
+				INFOPLIST_FILE = "ShoppingLandTests/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Florentin.ShoppingLandTests.ShoppingLandTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShoppingLand.app/ShoppingLand";
+			};
+			name = Release;
+		};
 		B587D51E20ED533600380EF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -702,6 +850,15 @@
 			buildConfigurations = (
 				B522973F20DBF481006A56DA /* Debug */,
 				B522974020DBF481006A56DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5802CB820F3683400AF8FFA /* Build configuration list for PBXNativeTarget "ShoppingLandTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5802CB620F3683400AF8FFA /* Debug */,
+				B5802CB720F3683400AF8FFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

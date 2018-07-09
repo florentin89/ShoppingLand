@@ -43,13 +43,43 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5802CAE20F3683400AF8FFA"
+               BuildableName = "ShoppingLandTests.xctest"
+               BlueprintName = "ShoppingLandTests"
+               ReferencedContainer = "container:ShoppingLand.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5B846DF20F401F700168E35"
+               BuildableName = "ShoppingLand Tests.xctest"
+               BlueprintName = "ShoppingLand Tests"
+               ReferencedContainer = "container:ShoppingLand.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5B846ED20F4062100168E35"
+               BuildableName = "ShoppingLandUITests.xctest"
+               BlueprintName = "ShoppingLandUITests"
+               ReferencedContainer = "container:ShoppingLand.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B587D51420ED533600380EF1"
-            BuildableName = "Siri ShoppingLand.appex"
-            BlueprintName = "Siri ShoppingLand"
+            BlueprintIdentifier = "B522972820DBF47E006A56DA"
+            BuildableName = "ShoppingLand.app"
+            BlueprintName = "ShoppingLand"
             ReferencedContainer = "container:ShoppingLand.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

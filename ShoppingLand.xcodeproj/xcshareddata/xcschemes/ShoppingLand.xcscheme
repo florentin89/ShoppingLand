@@ -28,6 +28,44 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5802CAE20F3683400AF8FFA"
+               BuildableName = "ShoppingLandTests.xctest"
+               BlueprintName = "ShoppingLandTests"
+               ReferencedContainer = "container:ShoppingLand.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AdminPanelViewControllerTests/testProductNameTextFieldLimit()">
+               </Test>
+               <Test
+                  Identifier = "ProductsViewControllerTests/testFetchPhotosForProductsFromGoogleGetsHTTPStatusCode200()">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5B846DF20F401F700168E35"
+               BuildableName = "ShoppingLand Tests.xctest"
+               BlueprintName = "ShoppingLand Tests"
+               ReferencedContainer = "container:ShoppingLand.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B5B846ED20F4062100168E35"
+               BuildableName = "ShoppingLandUITests.xctest"
+               BlueprintName = "ShoppingLandUITests"
+               ReferencedContainer = "container:ShoppingLand.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
